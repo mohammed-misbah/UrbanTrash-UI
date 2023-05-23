@@ -1,0 +1,56 @@
+
+.formContainer {
+    display: flex;
+    justify-content: center;
+    padding: 20px;
+    background-color: #eaeeeb;
+    width: 900px;
+    margin: auto;
+    margin-top: 50px;
+    border-radius: 5px;
+    gap: 3rem;
+  }
+  input::placeholder {
+    color: #c1bdbd; 
+  }
+  .formContainer:hover {
+    box-shadow: 0 15px 15px rgba(0, 0, 0, 0.2);
+  }
+  form {
+    width: 100%;
+    max-width: 600px;
+    gap: 3rem;
+  }
+  
+  .formRow {
+    display: flex;
+    flex-wrap: wrap;
+    margin: -10px;
+  
+  }
+  
+  .formColumn {
+    flex: 1;
+    padding: 10px;
+    gap: 3rem; /* Adjust the gap value as needed */
+  }
+  
+  input {
+    background-color: #d6dbdb;
+    width: 100%;
+    gap: 2rem;
+    padding: 10px;
+    margin-bottom: 10px;  
+    border: 1px solid #e6e1e1;
+    color: black;
+  }
+  
+  /* Responsive adjustments */
+  @media (max-width: 768px) {
+    .formColumn {
+      flex: none;
+      width: 100%;
+      /* opacity: ; */
+    }
+  }
+  

@@ -1,0 +1,113 @@
+.bookingForm {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+  }
+  
+  .bookingCard {
+    background-color: #fff;
+    border-radius: 8px;
+    padding: 24px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    max-width: 1000px;
+    width: 100%;
+  }
+  
+  .formColumn {
+    display: flex;
+    flex-direction: column;
+  }
+  
+  .formRow {
+    margin-bottom: 16px;
+  }
+  
+  label {
+    font-weight: bold;
+    display: block;
+    margin-bottom: 8px;
+  }
+ 
+  select{
+    width: 100%;
+    padding: 9px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    font-size: 14px;
+  }
+  
+
+  input{
+    width: 97%;
+    padding: 15px;
+    border: 1px solid #bbb8b8;
+    background-color: white;
+    border-radius: 4px;
+    font-size: 14px;
+  }
+
+  textarea{
+    width: 99%;
+    height: 50px;
+    padding: 10px;
+  }
+
+  
+  button {
+    padding: 12px;
+    background-color: #034307e6;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 20px;
+    max-width: 300px;
+    height: 60px;
+    width: 100%;
+  }
+  
+  .datetimeContainer {
+    display: flex;
+  }
+  
+  .datetimeContainer input,
+  .datetimeContainer select {
+    flex: 1;
+    margin-right: 20px;
+  }
+  
+  .datetimeContainer select {
+    padding: 10px;
+  }
+
+  .addressSelection {
+    display: flex;
+    align-items: center;
+  }
+  
+  .addressSelection textarea {
+    flex: 1;
+    padding: 15px;
+    border: 1px solid #dcd6d6;
+    border-radius: 4px;
+    font-size: 14px;
+  }
+  
+  .addressSelection select {
+    margin-left: 10px;
+    padding: 15px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    font-size: 14px;
+  }
+  
+  
+  /* Additional styles for responsiveness */
+  @media (max-width: 480px) {
+    .bookingCard {
+      max-width: 100%;
+      box-shadow: none;
+    }
+  }
+  

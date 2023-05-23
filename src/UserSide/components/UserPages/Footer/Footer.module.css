@@ -1,0 +1,108 @@
+
+.input {
+    width: 100%;
+  }
+  
+  input,
+  textarea {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    color: black;
+  }
+  
+  input::placeholder {
+    color: #0f0e0e;
+  }
+  
+  .footer {
+    background-color: #095b02;
+    padding: 40px 0;
+    width: 100%;
+  }
+
+  .container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    max-width: 1200px;
+    margin: 0 auto;
+  }
+  
+  .footerColumn {
+    flex-basis: 33%;
+    margin-bottom: 30px;
+  }
+  
+  h3{
+    color: rgb(147, 139, 139);
+  }
+  
+  h4 {
+    font-size: 20px;
+    margin-bottom: 10px;
+  }
+  
+  p {
+    line-height: 1.5;
+    margin-bottom: 10px;
+    font-size: 17px;
+  }
+  
+  h2 {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    color: rgb(200, 194, 194);
+  }
+  
+  h4 p {
+    color: rgb(174, 17, 17);
+  }
+  
+  .socialMediaIcons {
+    display: flex;
+    font-size: 30px;
+    color: white;
+  }
+  
+  .socialMediaIcons a {
+    margin-right: 10px;
+    color: #333;
+  }
+  
+  button{
+    color: rgb(255, 255, 255);
+  }
+  
+  /* Responsive adjustments */
+  
+  @media (max-width: 300px) {
+    .footerColumn {
+      flex-basis: 50%;
+    }
+  }
+  
+  @media (max-width: 300px) {
+    .footerColumn {
+      flex-basis: 100%;
+    }
+  }
+  
+  
+  /* Responsive adjustments */
+  @media (max-width: 300px) {
+    .card {
+      padding: 15px;
+    }
+  
+    .cardTitle {
+      font-size: 20px;
+    }
+  
+    .cardDescription {
+      font-size: 14px;
+    }
+  }
+  
+  /* end footer */
+  

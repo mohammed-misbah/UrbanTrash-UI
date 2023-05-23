@@ -1,0 +1,136 @@
+.profile {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 20px;
+  padding: bottom;
+  max-width: 700px;
+  height: 400px;
+  border-radius: 1rem;
+  padding: 2rem;
+  background-color: rgba(255, 255, 255, 0.73);
+  margin: auto;
+  margin-top: 100px;
+}
+
+.profile:hover {
+  box-shadow: 0 15px 15px rgba(0, 0, 0, 0.2);
+}
+
+.profileSection {
+  text-align: center;
+  margin-right: 20px;
+}
+
+.profileImage {
+  width: 100px;
+  height: 120px;
+  border-radius: 50%;
+  object-fit: cover;
+}
+
+.profileInfo {
+  font-size: 16px;
+}
+
+.profileTable {
+  margin-top: 40px;
+  width: 100%;
+  border-collapse: collapse;
+}
+
+.profileTable td {
+  padding: 10px;
+  border-bottom: 1px solid #ccc;
+}
+
+.profileTable td:first-child {
+  font-weight: bold;
+  width: 120px;
+}
+
+.profileTable tr:last-child td {
+  border-bottom: none;
+}
+
+.profileTable td:nth-child(2) {
+  text-align: right;
+}
+
+/* Responsive adjustments */
+@media (max-width: 500px) {
+  .profile {
+    flex-direction: column;
+    height: auto;
+    padding: 1rem;
+  }
+
+  .profileSection {
+    margin-right: 0;
+    margin-bottom: 1rem;
+  }
+
+  .profileImage {
+    width: 80px;
+    height: 80px;
+    margin-bottom: 0.5rem;
+  }
+
+  .profileTable td {
+    font-size: 14px;
+  }
+}
+
+.formContainer {
+  display: flex;
+  justify-content: center;
+  padding: 20px;
+  background-color: #eaeeeb;
+  width: 900px;
+  height: 400px;
+  margin: auto;
+  margin-top: 80px;
+  margin-bottom: 100px;
+  border-radius: 5px;
+  gap: 3rem;
+}
+
+.formContainer:hover {
+  box-shadow: 0 15px 15px rgba(0, 0, 0, 0.2);
+}
+
+form {
+  width: 100%;
+  max-width: 600px;
+  gap: 3rem;
+}
+
+.formRow {
+  display: flex;
+  flex-wrap: wrap;
+  margin: -10px;
+
+}
+
+.formColumn {
+  flex: 1;
+  padding: 10px;
+  gap: 3rem; /* Adjust the gap value as needed */
+}
+
+input {
+  background-color: #fcfffc;
+  width: 100%;
+  gap: 2rem;
+  padding: 10px;
+  margin-bottom: 10px;  
+  border: 1px solid #e6e1e1;
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+  .formColumn {
+    flex: none;
+    width: 100%;
+  }
+}

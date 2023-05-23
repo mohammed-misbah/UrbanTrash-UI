@@ -1,0 +1,135 @@
+/* 
+
+
+
+
+
+
+} */
+
+
+.card {
+  width: 450px;
+  background-color: rgba(11, 117, 18, 0.73);
+  height: 600px;
+  border-radius: 1rem;
+  padding: 2rem;
+  margin: auto;
+  margin-top: 100px;
+}
+  p {
+    text-align: center;
+  }
+
+
+@media only screen and(max-width:620px) {
+  .card{
+      width: 90vw;
+      padding-left: 1.5rem;
+      padding-right: 1.5rem;
+  }
+}
+
+@media only screen and (max-height:670px){
+  .card {
+      height: 650px;
+  }
+ 
+  
+}
+.title {
+  margin-top: 30px;
+  color: rgb(255, 255, 255);
+  text-align: center;
+  margin-bottom: 1rem;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+.input_container{
+  display: flex;
+  flex-direction: column;
+}
+.input_container input[type="text"]::placeholder {
+  color: rgb(139, 174, 145);
+  font-family: system-ui;
+  font-size: 0.97rem;
+}
+
+.input_container input[type="email"]::placeholder {
+  color: rgb(139, 174, 145);
+  font-family: system-ui;
+  font-size: 0.97rem;
+}
+
+.input_container input[type="phone"]::placeholder {
+  color: rgb(139, 174, 145);
+  font-family: system-ui;
+  font-size: 0.97rem;
+}
+
+.input_container input[type="password"]::placeholder {
+  color: rgb(139, 174, 145);
+  font-family: system-ui;
+  font-size: 0.97rem;
+}
+
+.input_container input {
+  width: 75%;
+  margin: 0.9rem auto;
+  height: 30px;
+  border-radius: 28px;
+  font-size: 0.8rem;
+  font-family:'Lucida Sans';
+  outline: 0;
+  border: 0;
+  color: rgb(228, 222, 222);
+  background-color: rgb(62, 130, 58);
+}
+
+button {
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  font-size: large;
+  color: white;
+  margin-top: 1rem;
+  height: 45px;
+  width: 80%;
+  max-width: 180px; 
+  border: none;
+  background-color: #096a24;
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.login_button:hover {
+  border: 2px solid white;
+  background-color: rgb(245, 243, 243);
+}
+
+.link_container{
+  display: flex;
+  justify-content: center;
+}
+
+.icons{
+  display: flex;
+  justify-content: center;
+  gap: 1rem;
+  margin-top: 50px;
+}
+
+
+
+
+@media only screen and (max-width:620px){
+  .input_container input{
+      width: 100%;
+  }
+  .login_button{
+      width: 100%;
+  }
+  .error_msg{
+      padding-left: 0.2rem;
+  }
+}
+

@@ -1,0 +1,200 @@
+/* 
+.lcard {
+  width: 450px;
+  background-color: rgba(11, 117, 18, 0.73);
+  height: 500px;
+  border-radius: 1rem;
+  padding: 2rem;
+  margin: auto;
+  margin-top: 150px;
+}
+
+h1 {
+    margin-bottom: 6rem;
+    margin-top: 10rem;
+    color: rgb(49, 49, 50);
+    text-align: center;
+  }
+  
+input {
+    margin-top: 1rem;
+    height: 50px;
+    border-radius: 5px;
+    border: 3px solid rgb(231, 231, 232);
+    width: 80%;
+    max-width: 450px; 
+    padding: 10px;
+    box-sizing: border-box;
+    background-color: rgb(255, 255, 255);
+    outline: none;
+    color: #aaabb0;
+    display: block; 
+    margin-left: auto; 
+    margin-right: auto; 
+  }
+  
+  
+  button {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    font-size: large;
+    color: white;
+    margin-top: 1rem;
+    height: 45px;
+    width: 80%;
+    max-width: 180px; 
+    border: none;
+    background-color: #096a24;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  h1, input, button {
+    margin-left: auto;
+    margin-right: auto;
+  }
+  
+  p {
+    text-align: center;
+  }
+  
+  a {
+    display: inline-block;
+    margin-top: 0.5rem;
+    text-align: center;
+  }
+  .input_container{
+    flex-direction: column;
+}
+
+  .linput_container input {
+    width: 75%;
+    margin: 1rem auto;
+    padding: 1rem;
+    border-radius: 26px;
+    font-size: 1rem;
+    font-family:'Lucida Sans';
+    outline: 0;
+    border: 0;
+    color: rgb(228, 222, 222);
+    background-color: rgba(31, 93, 17, 0.448);
+}
+.ltitle {
+  color: rgb(157, 42, 42);
+  text-align: center;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+} 
+
+@media only screen and (max-width:620px){
+  .linput_container input{
+      width: 100%;
+  }
+  .button{
+      width: 100%;
+  }
+
+} */
+
+.card {
+  width: 450px;
+  background-color: rgba(11, 117, 18, 0.73);
+  height: 400px;
+  border-radius: 1rem;
+  padding: 2rem;
+  margin: auto;
+  margin-top: 200px;
+}
+
+
+@media only screen and(max-width:620px) {
+  .card{
+      width: 90vw;
+      padding-left: 1.5rem;
+      padding-right: 1.5rem;
+  }
+}
+
+@media only screen and (max-height:670px){
+  .card{
+      height: 650px;
+  }
+  
+}
+.title {
+  margin-top: 40px;
+  color: rgb(255, 255, 255);
+  text-align: center;
+  margin-bottom: 1rem;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+.input_container{
+  display: flex;
+  flex-direction: column;
+}
+.input_container input[type="text"]::placeholder {
+  color: rgb(139, 174, 145);
+  font-family: system-ui;
+  font-size: 0.97rem;
+}
+
+.input_container input[type="password"]::placeholder {
+  color: rgb(139, 174, 145);
+  font-family: system-ui;
+  font-size: 0.97rem;
+}
+
+.input_container input {
+  width: 75%;
+  margin: 0.9rem auto;
+  height: 30px;
+  border-radius: 28px;
+  font-size: 1rem;
+  font-family:'Lucida Sans';
+  outline: 0;
+  border: 0;
+  color: rgb(228, 222, 222);
+  background-color: rgb(62, 130, 58);
+}
+
+.login_button {
+  display: block;
+  margin: 3rem auto 1rem auto;
+  width: 45%;
+  padding: 0.75rem 1rem;
+  font-weight: 650;
+  border-radius: 23px;
+  height: 50px;
+  outline: 0;
+  font-size: 1rem;
+  font-family: system-ui;
+  cursor: pointer;
+  background-color: rgb(173, 46, 46);
+  color: rgb(0, 0, 0);
+  border: 2px solid transparent;
+}
+
+.login_button:hover {
+  border: 2px solid white;
+  background-color: rgb(245, 243, 243);
+}
+
+.link_container{
+  display: flex;
+  justify-content: center;
+}
+
+
+
+@media only screen and (max-width:620px){
+  .input_container input{
+      width: 100%;
+  }
+  .login_button{
+      width: 100%;
+  }
+  .error_msg{
+      padding-left: 0.2rem;
+  }
+}
+

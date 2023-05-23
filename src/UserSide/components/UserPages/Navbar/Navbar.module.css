@@ -1,0 +1,121 @@
+@import url('https://fonts.googleapis.com/css2?family=Raleway:wght@300;400&family=Source+Sans+Pro:ital,wght@0,600;1,400;1,600&display=swap');
+
+body {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+    background-color: rgb(226, 235, 226);
+    font-family: 'Source Sans Pro', sans-serif;
+  }
+  header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    text-align: center;
+    height: 71px;
+    padding: 1.2rem;
+    background-color: #16983b;
+    color: white;
+    position: fixed;
+    width: 100%;
+    top: 0;
+  }
+  nav {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-grow: 1;
+    text-align: center;
+  }
+  
+  nav a {
+    font-size: 18px;
+    padding: 10px 20px;
+    margin: 0 10px;
+    color: white;
+    text-decoration: none;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  
+  
+  nav a:hover {
+    color: red;
+  }
+  nav img {
+    margin-left: 20px;
+    width: 130px;
+    height: 80px;
+    max-width: 100%;
+    display: block;
+    position: flex;
+    top: 1.2rem;
+    left: 1.2rem;
+    margin-left: 0;
+}
+
+nav .aWrapper {
+  display: flex;
+  margin: auto;
+  transform: translateX(30%);
+  transform-origin:center;
+  width: 50%;
+  justify-content: space-between;
+  /* border: 1px solid red; */
+}
+
+  
+  header .navBtn {
+    padding: 5px;
+    cursor: pointer;
+    background: transparent;
+    border: none;
+    outline: none;
+    color: white;
+    visibility: hidden;
+    opacity: 0;
+    font-size: 1.8rem;
+  }
+  
+@media only screen and (max-width: 1024px) {
+    header .navBtn {
+      visibility: visible;
+      opacity: 1;
+      position: absolute;
+      top: 1.2rem;
+      right: 1.2rem;
+    }    
+  
+header nav {
+      position: fixed;
+      top: 0;
+      left: 0;
+      height: 100%;
+      width: 100%;
+      display: flex;
+      align-items: center;
+      flex-direction: column;
+      justify-content: center;
+      gap: 1.5rem;
+      background-color: #16983b;
+      transition: 1s;
+      transform: translateY(-100vh);
+    }
+  
+    header .responsive_nav {
+      transform: none;
+    }
+  
+    nav .navCloseBtn {
+      position: absolute;
+      top: 2rem;
+      right: 2rem;
+    }
+  
+    nav a {
+      font-size: 1.3rem;
+    }
+    
+}
+  

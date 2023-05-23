@@ -1,0 +1,41 @@
+.linkButton1 {
+  width: 250px;
+  height: 70px;
+  background-color: #034307e6;
+  box-shadow: 0 2px 8px rgb(216, 216, 208);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: white;
+  text-decoration: none;
+  font-size: x-large;
+ 
+}
+
+.linkButton1:hover {
+  box-shadow: 0 15px 15px rgba(0, 0, 0, 0.2);
+}
+
+.linkButton2 {
+  width: 250px;
+  height: 70px;
+  background-color: #d1d106;
+  box-shadow: 0 2px 8px rgb(216, 216, 208);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: white;
+  text-decoration: none;
+  font-size: x-large;
+}
+
+.linkButton2:hover {
+  box-shadow: 0 15px 15px rgba(0, 0, 0, 0.2);
+}
+
+.waste1{
+  margin-top: 30px;
+}
+.waste2{
+  margin-top: 31px;
+}
