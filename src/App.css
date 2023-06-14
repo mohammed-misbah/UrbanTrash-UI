@@ -1,38 +1,39 @@
+:root {
+  --glass: rgb(145, 49, 49);
+}
+
+a {
+  text-decoration: none;
+}
+
 .App {
-  text-align: center;
-}
-
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
-}
-
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
-}
-
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
+  @apply bg-pink-100;
+  height: 100vh;
   justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
+  align-items: center;
+  display: flex;
 }
 
-.App-link {
-  color: #61dafb;
+
+.AppGlass {
+  /* @apply grid h-[98vh] w-98.7 rounded-lg bg-pink-100 overflow-hidden; */
+  display: grid;
+  grid-template-columns: 15rem auto;
+  gap: 30px;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
+@media screen and (max-width: 1200px) {
+  .AppGlass {
+    grid-template-columns: 10% 50% auto;
+    overflow-y: scroll;
   }
-  to {
-    transform: rotate(360deg);
+}
+
+@media screen and (max-width: 768px) {
+  .AppGlass {
+    grid-template-columns: 1fr;
+  }
+  .AppGlass::-webkit-scrollbar {
+    display: none;
   }
 }
