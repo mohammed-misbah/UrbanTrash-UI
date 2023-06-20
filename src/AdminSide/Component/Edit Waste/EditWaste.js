@@ -11,6 +11,7 @@ const EditWaste = () => {
     const [image, setImage] = useState('');
     const [price, setPrice] = useState('');
     const [weight, setWeight] = useState('');
+    const [category, setCategory] = useState('');
     const navigate = useNavigate();
 
     useEffect(() => {
@@ -25,8 +26,9 @@ const EditWaste = () => {
             setDescription(response.data.description);
             setPrice(response.data.price);
             setWeight(response.data.weight);
-            setImage(response.data.image)
-            console.log("enteeeeeeeeeered")
+            setImage(response.data.image);
+            setCategory(response.data.category);
+            console.log(response,"enteeeeeeeeeered")
         })
         .catch((error) => {
             console.error("Error fetching Biowaste",error)
@@ -41,7 +43,8 @@ const EditWaste = () => {
             description:description,
             price:price,
             weight:weight,
-            image:image
+            image:image,
+            category:category,
         };
         console.log("Thiiiiiiiiis has the updated biooooo waaaaaaste",updatedBioWaste)
         const DatasWithImage = new FormData();
@@ -50,6 +53,7 @@ const EditWaste = () => {
         DatasWithImage.append("price",updatedBioWaste.price);
         DatasWithImage.append("weight",updatedBioWaste.weight);
         DatasWithImage.append("image", updatedBioWaste.image);
+        DatasWithImage.append("category",updatedBioWaste.category);
 
         axios.patch(`/adminapi/biowastedit/${id}/`, DatasWithImage)
         .then((response) => {
@@ -111,6 +115,19 @@ return (
         </div>
 
         <div className="mb-4">
+            <label htmlFor="name" className="block mb-1 font-semibold text-gray-700">
+            Category:
+            </label>
+            <input
+            type="text"
+            id="category"
+            className="w-full px-4 py-2 text-gray-700 bg-gray-200 border border-gray-300 rounded-md focus:outline-none focus:ring focus:ring-red-200"
+            name="category"
+            onChange={(e) => setCategory(e.target.value)}
+            />
+        </div>
+
+        <div className="mb-4">
             <label htmlFor="description" className="block mb-1 font-semibold text-gray-700">
             Description:
             </label>
@@ -165,14 +182,14 @@ return (
         <button
             type="submit"
             onClick={updateBioWaste}
-            className="w-full px-4 py-2 text-white bg-red-600 rounded-md hover:bg-red-700 focus:outline-none focus:ring focus:ring-red-200"
+            className="w-full px-4 py-2 text-white bg-yellow-500 rounded-md hover:bg-red-700 focus:outline-none focus:ring focus:ring-red-200"
         >
             Update
         </button>
 
         <button
             onClick={deleteBioWaste}
-            className="w-full px-4 py-2 mt-4 text-white bg-red-600 rounded-md hover:bg-red-700 focus:outline-none focus:ring focus:ring-red-200"
+            className="w-full px-4 py-2 mt-4 text-white bg-red-500 rounded-md hover:bg-red-700 focus:outline-none focus:ring focus:ring-red-200"
         >
             Delete
         </button>

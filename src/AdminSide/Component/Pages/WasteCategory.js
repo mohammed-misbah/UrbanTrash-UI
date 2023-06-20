@@ -41,39 +41,40 @@ const WasteCategory = () => {
         </div>
         <button
           id="dropdownActionButton"
-          className="bg-red-500 hover:bg-red-700 text-white rounded px-20 py-4 transition-colors duration-300"
+          className="bg-red-700 hover:bg-red-500 text-white rounded px-20 py-4 transition-colors duration-300"
           type="button"
           onClick={changeShow}
         >
           ADD Category
         </button>
       </div>
-      <div className="bg-green-800 bg-opacity-80 p-8 rounded-t-md">
+      <div className="bg-green-800 bg-opacity-60 p-8 rounded-t-md">
         <div className="overflow-x-auto">
           <table className="min-w-full">
             <thead>
               <tr>
-                <th className="py-4 px-6 text-white">Id</th>
-                <th className="py-4 px-6 text-white">image</th>
-                <th className="py-4 px-6 text-white">Name</th>
-                <th className="py-4 px-6 text-white">Description</th>
-                <th className="py-4 px-6 text-white">Recyclable</th>
-                <th className="py-4 px-6 text-white">Edit</th>
+                <th className="py-6 px-14 text-white">Id</th>
+                <th className="py-6 px-14 text-white">image</th>
+                <th className="py-6 px-14 text-white">Name</th>
+                <th className="py-6 px-14 text-white">Description</th>
+                <th className="py-6 px-14 text-white">Recyclable</th>
+                <th className="py-6 px-14 text-white">Edit</th>
               </tr>
             </thead>
             <tbody>
               {categories.map((category) => (
                 <tr key={category.id}>
-                  <td className="py-2 px-4">{category.id}</td>
-                  <td className="py-2 px-4">
+                  <td className="py-8 px-20">{category.id}</td>
+                  <td className="py-8 px-20">
                     {category.image && <img src={category.image} alt="image" className="w-16 h-16 object-cover rounded" />}
                   </td>
-                  <td className="py-2 px-4">{category.name}</td>
-                  <td className="py-2 px-4">{category.description}</td>
-                  <td className="py-2 px-4">{category.recyclable ? 'yes' : 'no'}</td>
-                  <td className="py-2 px-4">
-                    <button onClick={() => redirectToWasteCategoryDetail(category.id)} className="text-blue-600 hover:underline">
-                      Edit Waste
+                  <td className="py-8 px-20">{category.name}</td>
+                  <td className="py-8 px-20">{category.description}</td>
+                  <td className="py-8 px-20">{category.recyclable ? 'yes' : 'no'}</td>
+                  <td className="py-8 px-20">
+                    <button onClick={() => redirectToWasteCategoryDetail(category.id)} 
+                    className="bg-yellow-500 hover:bg-yellow-400 text-white rounded px-10 py-2.5 transition-colors duration-300">
+                      EditWaste
                     </button>
                   </td>
                 </tr>

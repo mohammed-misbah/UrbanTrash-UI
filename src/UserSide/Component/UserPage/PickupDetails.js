@@ -1,4 +1,5 @@
-import React,{useRef,useState,useEffect} from 'react'
+
+import React,{ useState,useEffect } from 'react'
 // import Table from 'react-bootstrap/Table';
 import axios from '../../../utils/axios'
 // import Footer from './Footer/Footer';
@@ -14,13 +15,13 @@ const Pickupdetails = () => {
 
   useEffect(() => {
     fetchWasteBookingdetails();
-    fetchScrapBookingdetails();
+    fetchScrapBookingdetails();  
   },[user]);
 
   const fetchWasteBookingdetails = () => {  
     const id = user?.id
     axios
-    .post(`/api/order_detailist/${id}/`)
+    .get(`/api/pickup_detail/${id}`)
     .then((response) => {
       console.log(response,"Waaaaaaaaste Ooooooooorder deeeeetails prrrrrrrinted");
       setWasteBookings(response.data);
@@ -37,7 +38,7 @@ const Pickupdetails = () => {
   const fetchScrapBookingdetails = () => {
     const id = user?.id
     axios 
-    .post(`/api/scraporder_detailist/${id}/`)
+    .get(`/api/scrappickup_detail/${id}/`)
     .then((response) => {
       console.log(response,"Scrap Ooooooooorder deetails enteeeeeeeeeeeered")
       setScrapBooking(response.data);
@@ -47,63 +48,69 @@ const Pickupdetails = () => {
       console.error('Error fetching Scrap Booking data',error)
     });
   };
-  // console.log(scrapbookings, "Scraaaaaap booooooooking deeeetsils")
+  console.log(scrapbookings, "Scraaaaaap booooooooking deeeetails")
+
 
 
     return (
-        <div className="container mx-auto">
-        <div className="w-full p-4 bg-opacity-60 bg-green-200 rounded-md">
-          <div className="w-full bg-green-100 p-2 rounded-t-md">
-            <h1 className="text-lg font-bold">Pickup Details</h1>
+      <div className="container mx-auto px-4 py-8 mt-10">
+        <h1 className="text-2xl font-bold mb-4 text-indigo-700">Waste Pickup Details</h1>
+            {wastebookings.map((wastebooking) => (
+            <div key={wastebooking.id} className="bg-gradient-to-r bg-white rounded-lg shadow-md mb-8 p-6">
+            <div className="mb-4">
+              <p className="font-semibold text-lg text-blue-900">Pickup ID: {wastebooking.id}</p>
+              <p><span className='font-bold'>Customer:</span> <span className="font-semibold">{wastebooking.customer}</span></p>
+            </div>
+            <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4">
+              <div className="mb-4">
+                <p className="text-green-700 font-bold">Waste Type: {wastebooking.biowaste}</p>
+                <p><span className='font-bold mb-3'>Pickup Date:</span> {wastebooking.pickup_date}</p>
+                <p><span className='font-bold mb-3'>Pickup Time:</span> {wastebooking.pickup_time}</p>
+              </div>
+              <div className="mb-4">
+                <p><span className='font-bold'>Weight:</span> <span className="font-semibold text-red-600">{wastebooking.waste_weight}Kg</span></p>
+                <p><span className='font-bold'>Price:</span> <span className="font-semibold text-purple-600">{wastebooking.price}Rs</span></p>
+              </div>
+              <div className="mb-4">
+                <p>Status:<span className='font-bold text-red-500'> {wastebooking.status} </span></p>
+              </div>
+            </div>
+            <div className="mt-4">
+              <p><span className='font-bold'>Address:</span></p>
+              <p>{wastebooking.address.address1},{wastebooking.address.address2},{wastebooking.address.phone},{wastebooking.address.pincode}</p>
+            </div>
           </div>
-          <div className="w-full bg-green-50 p-4 rounded-b-md">
-            <table className="w-full">
-              <thead className="sticky top-0">
-                <tr>
-                  <th className="py-2 px-4">Customer</th>
-                  <th className="py-2 px-4">Address</th>
-                  <th className="py-2 px-4">WasteType</th>
-                  <th className="py-2 px-4">WasteWeight</th>
-                  <th className="py-2 px-4">Price</th>
-                  <th className="py-2 px-4">PickupDate</th>
-                  <th className="py-2 px-4">PickupTime</th>
-                  <th className="py-2 px-4">Status</th>
-                </tr>
-              </thead>
-              <tbody className="divide-y divide-gray-200">
-                {wastebookings.map((wastebooking) => (
-                  <tr key={wastebooking.id}>
-                    <td className="py-2 px-4">{wastebooking.address.lastname}</td>
-                    <td className="py-2 px-4">
-                      {wastebooking.address.address1},
-                      {wastebooking.address.address2}-<br />
-                      {wastebooking.address.phone}-{wastebooking.address.pincode}
-                    </td>
-                    <td className="py-2 px-4">{wastebooking.biowaste.name}</td>
-                    <td className="py-2 px-4">{wastebooking.pickup_date}</td>
-                    <td className="py-2 px-4">{wastebooking.pickup_time}</td>
-                  </tr>
-                ))}
-                {scrapbookings.map((scrapbooking) => (
-                  <tr key={scrapbooking.id}>
-                    <td className="py-2 px-4">{scrapbooking.address.lastname}</td>
-                    <td className="py-2 px-4">
-                      {scrapbooking.address.address1},
-                      {scrapbooking.address.address2}-<br />
-                      {scrapbooking.address.phone}-{scrapbooking.address.pincode}
-                    </td>
-                    <td className="py-2 px-4">{scrapbooking.scrapwaste.name}</td>
-                    <td className="py-2 px-4">{scrapbooking.scrap_weight}</td>
-                    <td className="py-2 px-4">{scrapbooking.price}</td>
-                    <td className="py-2 px-4">{scrapbooking.pickup_date}</td>
-                    <td className="py-2 px-4">{scrapbooking.pickup_time}</td>
-                    <td className="py-2 px-4">{scrapbooking.status}</td>
-                  </tr>
-                ))}
-              </tbody>
-            </table>
+            ))}
+
+
+
+            <h1 className="text-2xl font-bold mb-4 text-indigo-700">Scrap Pickup Details</h1>
+            {scrapbookings.map((scrapbooking) => (
+            <div key={scrapbooking.id} className="bg-gradient-to-r bg-white rounded-lg shadow-md mb-8 p-6">
+            <div className="mb-4">
+              <p className="font-semibold text-lg text-blue-900">Pickup ID: {scrapbooking.id}</p>
+              <p><span className='font-bold'>Customer:</span> <span className="font-semibold">{scrapbooking.customer}</span></p>
+            </div>
+            <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4">
+              <div className="mb-4">
+                <p className="text-green-700 font-bold">Scrap Type: {scrapbooking.scrapwaste}</p>
+                <p><span className='font-bold mb-3'>Pickup Date:</span> {scrapbooking.pickup_date}</p>
+                <p><span className='font-bold mb-3'>Pickup Time:</span> {scrapbooking.pickup_time}</p>
+              </div>
+              <div className="mb-4">
+                <p><span className='font-bold'>Weight:</span> <span className="font-semibold text-red-600">{scrapbooking.scrap_weight}Kg</span></p>
+                <p><span className='font-bold'>Price:</span> <span className="font-semibold text-purple-600">{scrapbooking.price}Rs</span></p>
+              </div>
+              <div className="mb-4">
+                <p>Status:<span className='font-bold text-red-500'> {scrapbooking.pickup_status} </span></p>
+              </div>
+            </div>
+            <div className="mt-4">
+              <p><span className='font-bold'>Address:</span></p>
+              <p>{scrapbooking.address.address1},{scrapbooking.address.address2},{scrapbooking.address.phone},{scrapbooking.address.pincode}</p>
+            </div>
           </div>
-        </div>
+            ))}
       </div>
       
     );
@@ -111,19 +118,3 @@ const Pickupdetails = () => {
 
 
 export default Pickupdetails;
-
-
-
-
-// {
-// "waste_weight":1000,
-// "price":200,
-// "pickup_date":2023-05-21,
-// "pickup_time":10:25:00,
-// "status":"pending",
-// "address":1,
-// "biowaste":1,
-// "cust0rmor":1,
-// "wastebooking":1
-// }
-

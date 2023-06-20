@@ -1,0 +1,41 @@
+
+header .responsive_nav {
+    transform: none;
+    background-color: #0cbf385b;
+  }
+  header nav {
+    position: fixed;
+    top: 20px;
+    }
+
+  header.navBtn {
+    padding: 5px;
+    cursor: pointer;
+    background: transparent;
+    border: none;
+    outline: none;
+    color: white;
+    visibility: hidden;
+    opacity: 0;
+    font-size: 1.8rem;
+  }
+    ul.aWrapper {
+      display: flex;
+      justify-content: space-between;
+      flex-wrap: wrap;
+    }
+    
+    ul.aWrapper li {
+      flex-basis: 20%;
+      flex-grow: 0;
+      flex-shrink: 0;
+      text-align: center;
+      padding: 10px;
+    }
+    ul.aWrapper.userWrapper {
+        flex-wrap: nowrap;
+      }
+      
+      ul.aWrapper.userWrapper li {
+        flex-basis: auto;
+      }

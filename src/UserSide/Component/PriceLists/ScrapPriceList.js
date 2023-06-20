@@ -37,12 +37,12 @@ const ScrapPriceList = () => {
             <h2 className="text-xl text-green-600 mb-4">Holdse: <span>{scrap.weight}</span></h2>
           </div>
           <div>
-            <h2><span className="text-green-600">Best Use:</span> {scrap.category.name}</h2>
+            <h2><span className="text-green-600 mb-6">Best Use:</span> {scrap.category}</h2>
           </div>
         </div>
         <div className="additionalInfo text-center py-6 md:py-10">
           <h2 className="text-4xl font-bold mb-4">Rs: {scrap.price}</h2>
-          <button className="button mt-4 px-8 py-2 rounded-lg bg-yellow-500 hover:bg-yellow-400 text-white font-bold">
+          <button className="button mt-4 px-10 py-4 rounded-lg bg-yellow-500 hover:bg-yellow-400 text-white font-bold">
             Book Now
           </button>
         </div>

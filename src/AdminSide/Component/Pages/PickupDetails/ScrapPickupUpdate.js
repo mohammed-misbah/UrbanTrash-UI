@@ -8,20 +8,20 @@ const ScrapPickupUpdate = () => {
     const [pickup, setPickup] = useState('');
     const [price, setPrice] = useState('');
     const [scrap_weight, setWeight] = useState('');
-    const [status, setStatus] = useState("");
+    const [pickup_status, setStatus] = useState("");
     const navigate = useNavigate();
 
     useEffect(() => {
-        fetchPickup();
+        fetchScrapPickup();
     }, []);
 
-    const fetchPickup = () => {
+    const fetchScrapPickup = () => {
         axios.get(`/api/scrapickup_update/${id}/`)
         .then((response) => {
             setPickup(response.data);
             setPrice(response.data.price);
-            setStatus(response.data.status);
-            setWeight(response.data.waste_weight);
+            setStatus(response.data.pickup_status);
+            setWeight(response.data.scrap_weight);
         })
         .catch((error) => {
             console.error('Error fetching order',error)
@@ -35,7 +35,7 @@ const ScrapPickupUpdate = () => {
             ...pickup,
             price:price,
             scrap_weight:scrap_weight,
-            status:status
+            pickup_status:pickup_status
         };
 
         axios.post(`/api/scrapickup_update/${id}/`, updatedPickup)
@@ -68,10 +68,10 @@ const ScrapPickupUpdate = () => {
                 showConfirmButton: false,
                 timer: 1500,
               });
-              navigate('/api/scraporder_detail')
+              navigate('/api/scrappickup_detailist')
         })
         .catch((error) => {
-            console.error("Error deleting order:",error);
+            console.error("Error deleting scrapickupp:",error);
         })
     };
 
@@ -80,7 +80,7 @@ const ScrapPickupUpdate = () => {
     }
     
 return (
-    <div className="max-w-2xl mx-auto p-8 mt-20 bg-red-400 rounded-lg shadow-lg">
+    <div className="max-w-2xl mx-auto p-8 mt-20 bg-opacity-60 bg-green-800 rounded-lg shadow-lg">
     <h2 className="text-2xl font-bold mb-4">Order Detail</h2>
      <p>Pickup Id: {pickup.id}</p>
     <div className="mb-4">
@@ -114,14 +114,14 @@ return (
       <input
         type="text"
         className="w-full px-4 py-2 text-gray-700 bg-gray-200 border border-gray-300 rounded-md focus:outline-none focus:ring focus:ring-red-500"
-        value={status}
+        value={pickup_status}
         onChange={(e) => setStatus(e.target.value)}
       />
     </div>
   
     <button
       type="submit"
-      className="w-full px-4 py-2 text-white bg-red-600 rounded-md hover:bg-red-700 focus:outline-none focus:ring focus:ring-red-500"
+      className="w-full px-4 py-2 text-white bg-green-700 rounded-md hover:bg-green-600 focus:outline-none focus:ring focus:ring-red-500"
       onClick={updatePickup}
     >
       Update Pickup

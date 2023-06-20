@@ -9,6 +9,9 @@ import {useDispatch} from "react-redux"
 import { loginPost } from '../../utils/constants';
 import {setUserDetails} from '../../redux/usernameSlice';
 import Navbar from '../Component/Navbar/Navbar';
+import { FaEnvelope, FaLock } from 'react-icons/fa';
+import Footer from '../Component/Footer/Footer';
+
 
 
 const Login = () => {
@@ -52,7 +55,10 @@ const Login = () => {
         })
         .then((response) => {
           console.log(response.data);
-          if (response.data === "Wrong password" || response.data === "Email or Password is Wrong" || response.data === "no user"|| response.data === 'Password is incorrect') 
+          if (response.data === "Wrong password" || 
+          response.data === "Email or Password is Wrong" ||
+          response.data === "no user"|| 
+          response.data === 'Password is incorrect') 
           {
             Swal.fire({
               position: "center",
@@ -81,39 +87,56 @@ const Login = () => {
         });
     }
   };
-    return (  
-        <div>
-        <div>
-          <Navbar/>
-        </div>
-        <div className="w-96 bg-green-500 h-96 rounded-lg p-8 mx-auto mt-24">
-          <div className="mb-4">
-            <h1 className="text-white text-center text-2xl font-bold">Login</h1>
+    return ( 
+      <section className="bg-gray-200 dark:bg-gray-900">
+      <Navbar/>
+      <div className="flex flex-col items-center justify-center px-4 py-20 mx-auto md:h-screen lg:py-0">
+        <div className="w-full bg-white rounded-lg shadow dark:border md:mt-0 sm:max-w-md xl:p-0 dark:bg-gray-800 dark:border-gray-700" style={{ width: '100%', maxWidth: '500px', height: 'auto' }}>
+          <div className="p-6 space-y-4 md:space-y-6 sm:p-8">
+            <h1 className="text-xl font-bold leading-tight tracking-tight text-gray-900 md:text-2xl dark:text-white mt-12">
+              Login in to your account
+                  </h1>
+                  <form class="space-y-4 md:space-y-6" onSubmit={handleLogin}>
+                      <div>
+                          <label for="email" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Your email</label>
+                          <input value={inputs.email} 
+                          onChange={handleChange}
+                          type="email" name="email"
+                          id="email" 
+                          class="bg-gray-50 border border-gray-300 text-gray-900 sm:text-sm rounded-lg  block w-full p-2.5 dark:bg-gray-700" 
+                          placeholder="name@gmai.com"/>
+                      </div>
+                      <div>
+                          <label for="password" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Password</label>
+                          <input type="password" 
+                          value={inputs.password}
+                          onChange={handleChange}
+                          name="password" id="password" 
+                          placeholder="••••••••" 
+                          class="bg-gray-50 border border-gray-300 text-gray-900 sm:text-sm rounded-lg block w-full p-2.5 dark:bg-gray-700"/>
+                      </div>
+                      <div class="flex items-center justify-between">
+                          <div class="flex items-start">
+                              <div class="flex items-center h-5">
+                                <input id="remember" aria-describedby="remember" type="checkbox" class="w-4 h-4 border border-gray-300 rounded bg-gray-50 focus:ring-3" />
+                              </div>
+                              <div class="ml-3 text-sm">
+                                <label for="remember" class="text-gray-500 dark:text-gray-300">Remember me</label>
+                              </div>
+                          </div>
+                          <a href="/otp" class="text-sm font-medium text-blue-600 hover:underline dark:text-blue-500"> Login with OTP </a>
+                      </div>
+                      <button type="submit" class="w-full text-white bg-blue-900 hover:bg-blue-700 focus:ring-4 rounded-lg text-sm px-5 py-3 text-center dark:bg-blue-600 dark:hover:bg-blue-700">
+                        Log in</button>
+                      <p class="text-sm font-light text-gray-500 dark:text-gray-400">
+                          Don’t have an account yet? <a href="/register" class="font-medium text-blue-600 hover:underline dark:text-blue-500">Sign up</a>
+                      </p>
+                  </form>
+              </div>
           </div>
-          <form onSubmit={handleLogin}>
-            <div className="flex flex-col">
-              <input
-                className="border border-green-200 rounded-lg px-4 py-2 mb-4 text-sm bg-green-200 placeholder-green-500"
-                type="text"
-                value={inputs.email}
-                name="email"
-                onChange={handleChange}
-                placeholder="username@gmail.com"
-              />
-              <input
-                className="border border-green-200 rounded-lg px-4 py-2 mb-4 text-sm bg-green-200 placeholder-green-500"
-                type="password"
-                value={inputs.password}
-                name="password"
-                onChange={handleChange}
-                placeholder="Enter password"
-              />
-              <button className="bg-green-700 hover:bg-green-600 text-white rounded-lg py-2 max-w-md mx-auto" type="submit">Login</button>
-              <p className="text-center mt-8">Don't have an account? <a href="/register">Sign in</a></p>
-            </div>
-          </form>
-        </div>
       </div>
+      <Footer/>
+    </section>
       
   );
 }

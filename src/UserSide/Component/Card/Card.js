@@ -3,7 +3,7 @@ import Cards from '../../images/waste 1.jpeg'
 
 const Card = () => {
     return (
-        <div className="border border-gray-300 rounded-lg p-6 shadow transition-shadow duration-300 hover:shadow-md flex flex-col items-center text-center w-80 h-96 bg-white mt-24 mb-24">
+        <div className="border border-gray-300 rounded-lg p-6 shadow transition-shadow duration-300 hover:shadow-md flex flex-col items-center text-center w-80 h-100 bg-white mt-24 mb-24">
         <img className="w-4/5 h-40 rounded-md mb-4" src={Cards} alt="Card" />
         <div>
           <h3 className="text-2xl font-bold mb-4">Reduce, reuse, recycle</h3>

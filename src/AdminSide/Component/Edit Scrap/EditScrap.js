@@ -12,6 +12,7 @@ const EditScrap = () => {
     const [image, setImage] = useState(null);
     const [price, setPrice] = useState(null);
     const [weight, setWeight] = useState(null);
+    const [category, setCategory] = useState([]);
     const navigate = useNavigate();
 
     useEffect(() => {
@@ -27,6 +28,7 @@ const EditScrap = () => {
             setPrice(response.data.price);
             setWeight(response.data.weight);
             setImage(response.data.image);
+            setCategory(response.data.category);
             console.log("Daataas enteeeered");
         })
         .catch((error) => {
@@ -43,6 +45,7 @@ const EditScrap = () => {
             price:price,
             weight:weight,
             image:image,
+            category:category,
         };
         console.log("Thisssss haaaaaas updated Scraaaap Waaaaaaste", updatedScrap)
         const DataWithImage = new FormData();
@@ -51,6 +54,7 @@ const EditScrap = () => {
         DataWithImage.append("price",updatedScrap.price);
         DataWithImage.append("weight",updatedScrap.weight);
         DataWithImage.append("image", updatedScrap.image); 
+        DataWithImage.append("category",updatedScrap.category);
 
         axios.patch(`/adminapi/scrapwastedit/${id}`,DataWithImage)
         .then((response) => {
@@ -111,6 +115,17 @@ return (
       </div>
 
       <div className="mb-4">
+        <label htmlFor="name" className="block mb-1 font-semibold text-gray-700">Category:</label>
+        <input
+          type="text"
+          id="category"
+          className="w-full px-4 py-2 text-gray-700 bg-gray-200 border border-gray-300 rounded-md focus:outline-none focus:ring focus:ring-red-200"
+          name="category"
+          onChange={(e) => setCategory(e.target.value)}
+        />
+      </div>
+
+      <div className="mb-4">
         <label htmlFor="description">Description:</label>
         <input
           type="text"
@@ -155,12 +170,12 @@ return (
       </div>
       <button type="submit" 
       onClick={updateScrap}
-      className="w-full px-4 py-2 text-white bg-red-600 rounded-md hover:bg-red-700 focus:outline-none focus:ring focus:ring-red-200">
+      className="w-full px-4 py-2 text-white bg-yellow-600 rounded-md hover:bg-yellow-500 focus:outline-none focus:ring focus:ring-red-200">
         Update
       </button>
       <button
        onClick={deleteScrap}
-       className="w-full px-4 py-2 mt-4 text-white bg-red-600 rounded-md hover:bg-red-700 focus:outline-none focus:ring focus:ring-red-200">
+       className="w-full px-4 py-2 mt-4 text-white bg-red-500 rounded-md hover:bg-red-700 focus:outline-none focus:ring focus:ring-red-200">
           Delete
       </button>
     </form>

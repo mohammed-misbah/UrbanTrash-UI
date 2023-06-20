@@ -34,7 +34,7 @@ export default function ProfileDetails() {
   }, []);
 
     return (
-<div className="container mx-auto py-10">
+<div className="container mx-auto py-10 mt-20">
   <div className="flex items-center justify-center p-4 bg-white rounded-lg shadow-lg mb-8">
     <div className="text-center mr-8">
       <img src={avatar} className="w-24 h-24 rounded-full object-cover mx-auto" alt="profile" />

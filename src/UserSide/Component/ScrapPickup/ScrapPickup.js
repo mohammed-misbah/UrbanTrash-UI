@@ -63,7 +63,7 @@ const ScrapBooking = () => {
       setScrapCat(fetchScrap);
     })
     .catch((error) => {
-      console.error("Error fetching waste categories:", error);
+      console.error("Error fetching scrap categories:", error);
     });
   };
   console.log(scrapCat,"scraaaaaaaaaaape");
@@ -117,7 +117,7 @@ const ScrapBooking = () => {
       address: SelectedAddress,
       pickup_date: date,
       pickup_time:time,
-      note:message,
+      notes:message,
     };
     console.log(Bookingdata);
     axios
@@ -152,6 +152,7 @@ const ScrapBooking = () => {
           <div className="flex justify-center items-center mt-20">
             <div className="bg-white rounded-lg p-6 shadow-lg max-w-4xl w-full">
               <form onSubmit={handleSubmit}>
+                  <h1 className='flex justify-center items-center py-6 px-20 font-bold text-xl text-gray-500'>Scrap Pickup</h1>
                 <div className="flex flex-col mb-6">
                   <label htmlFor="wastetype" className="font-bold mb-2">
                     Waste Type:
@@ -202,12 +203,12 @@ const ScrapBooking = () => {
                       </h1>
                     )}
                     <button
-                      className="addaddress bg-green-600 text-white py-2 px-4 rounded-md"
+                      className="addaddress bg-blue-500 text-white py-3 px-5 rounded-md"
                       onClick={() => {
                         navigate("/address");
                       }}
                     >
-                      Add Address
+                      AddAddress
                     </button>
                   </div>
                 </div>
@@ -258,9 +259,9 @@ const ScrapBooking = () => {
       
                 <button
                   type="submit"
-                  className="bg-green-600 text-white py-3 px-6 rounded-md mb-4"
+                  className="bg-green-700 text-white py-3.5 px-14 rounded-md mb-8"
                 >
-                  Book Now
+                  Pickup Now
                 </button>
       
                 <div className="flex justify-between items-center">

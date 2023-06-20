@@ -4,6 +4,7 @@ import { Routes, Route } from 'react-router-dom';
 import Home from './UserSide/Component/Home';
 import Login from './UserSide/Pages/Login';
 import Signin from './UserSide/Pages/Signin';
+import Otp from './UserSide/Pages/Otp';
 import User from './UserSide/Component/UserPage/User';
 import PickupDetails from './UserSide/Component/UserPage/PickupDetails';
 import Sidebar from './UserSide/Component/UserPage/Sidebar/Sidebar';
@@ -49,7 +50,10 @@ function App() {
   const dispatch = useDispatch();
   const navigate = useNavigate();
   useEffect(() => {
-    const token = Cookies.get("jwt");
+    // const jwt = localStorage.getItem('jwt_user')
+    
+    const token = Cookies.get("jwt") ?? Cookies.get("jwt_token");
+    console.log("this is s",token)
     if (!token) {
 
       console.log("no");
@@ -62,10 +66,10 @@ function App() {
           },
         })
         .then((response) => {
-          console.log(response);
+          console.log("this is res",response);
           setUserState(response.data.user)
           dispatch(setUserDetails(response.data.user));
-        });
+        }).catch((err) => {console.log(err)});
     }
   },[]);
   
@@ -75,12 +79,13 @@ function App() {
         <Route path="/" element={<Home />} />
         <Route path="/login" element={<Login />} />
         <Route path="/register" element={<Signin />} />
+        <Route path="/otp" element={<Otp />}/>
         <Route path="/wastepickup" element={<WastePickup/>}/>
         <Route path="/scrappickup" element={<ScrapPickup/>}/>
         <Route path='/pricelist' element={<PriceList/>}/>
         <Route path='/contact' element={<Contact/>}/>
-        <Route path="/pickupdetails" element={<><Sidebar /><PickupDetails /></>} />
         <Route path='/address' element={<><Sidebar /><Address/></>}/>
+        <Route path="/pickupdetails" element={<><Sidebar /><PickupDetails /></>} />
         <Route path="/user" element={<><Sidebar /><User /></>} />
       </Routes>
   );
@@ -105,11 +110,11 @@ function AppLayout() {
                   <Route path='/addscrap' element={<><AdminSidebar/><AddScrap/></>} />
                   <Route path='/editwaste/:id' element={<><AdminSidebar/><EditWaste/></>} />
                   <Route path='/editscrap/:id' element={<><AdminSidebar/><EditScrap/></>} />
-                  <Route path='/wasteupdate/:id' element={<><AdminSidebar/><WastePickupUpdate /></>} />
                   <Route path='/wastepickuplist' element={<><AdminSidebar/><WastePickupDetails /></>} />
                   <Route path='/scrapickuplist' element={<><AdminSidebar/><ScrapPickupDetails /></>} />
-                  <Route path='/scrapupdate/:id' element={<><AdminSidebar/><ScrapPickupUpdate /></>} />
                   <Route path="/addscrapcategory" element={<><AdminSidebar/><AddScrapCategory /></>} />
+                  <Route path='/scrapupdate/:id' element={<><AdminSidebar/><ScrapPickupUpdate /></>} />
+                  <Route path='/wasteupdate/:id' element={<><AdminSidebar/><WastePickupUpdate /></>} />
                 </Routes>
 
       

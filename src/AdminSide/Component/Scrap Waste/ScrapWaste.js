@@ -40,49 +40,48 @@ return (
         <h1 className="text-white right-40">Scrap Wastes</h1>
         <button
           id="dropdownActionButton"
-          className="bg-red-500 hover:bg-red-700 text-white rounded px-20 py-4 transition-colors duration-300"
+          className="bg-red-700 hover:bg-red-500 text-white rounded px-20 py-4 transition-colors duration-300"
           type="button"
           onClick={changeShow}
         >
           Add Scrap
         </button>
       </div>
-      <div className="bg-green-800 bg-opacity-80 p-10 rounded-t-md">
+      <div className="bg-green-800 bg-opacity-60 p-10 rounded-t-md">
         <div className="overflow-x-auto">
           <table className="min-w-full">
             <thead>
               <tr>
-                <th className="py-2 px-4 text-white">Id</th>
-                <th className="py-2 px-4 text-white">Image</th>
-                <th className="py-2 px-4 text-white">Category</th>
-                <th className="py-2 px-4 text-white">Scrap Name</th>
-                <th className="py-2 px-4 text-white">Description</th>
-                <th className="py-2 px-4 text-white">Weight</th>
-                <th className="py-2 px-4 text-white">Price</th>
-                <th className="py-2 px-4 text-white">Edit</th>
+                <th className="py-6 px-14 text-white">Id</th>
+                <th className="py-6 px-14 text-white">Image</th>
+                <th className="py-6 px-14 text-white">Category</th>
+                <th className="py-6 px-14 text-white">Scrap Name</th>
+                <th className="py-6 px-14 text-white">Description</th>
+                <th className="py-6 px-14 text-white">Weight</th>
+                <th className="py-6 px-14 text-white">Price</th>
+                <th className="py-6 px-14 text-white">Edit</th>
               </tr>
             </thead>
             <tbody>
               {scrapwaste.map((scrap) => (
                 <tr key={scrap.id}>
-                  <td className="py-2 px-4">{scrap.id}</td>
-                  <td className="py-2 px-4">
+                  <td className="py-8 px-20">{scrap.id}</td>
+                  <td className="py-8 px-20">
                     {scrap.image && (
                       <img src={scrap.image} alt="scrapimage" className="w-16 h-16 object-cover rounded" />
                     )}
                   </td>
-                  <td className="py-2 px-4">{scrap.category}</td>
-                  <td className="py-2 px-4">{scrap.name}</td>
-                  <td className="py-2 px-4">{scrap.description}</td>
-                  <td className="py-2 px-4">{scrap.weight}</td>
-                  <td className="py-2 px-4">{scrap.price}</td>
-                  <td className="py-2 px-4">
+                  <td className="py-8 px-20">{scrap.category}</td>
+                  <td className="py-8 px-20">{scrap.name}</td>
+                  <td className="py-8 px-20">{scrap.description}</td>
+                  <td className="py-8 px-20">{scrap.weight}</td>
+                  <td className="py-8 px-20">{scrap.price}</td>
+                  <td className="py-8 px-20">
                     <div className="flex justify-center">
                       <button
                         onClick={() => redirectToScrapDetail(scrap.id)}
-                        className="text-blue-600 hover:underline"
-                      >
-                        Edit Waste
+                        className="bg-yellow-500 hover:bg-yellow-400 text-white rounded px-10 py-2.5 transition-colors duration-300">
+                        EditWaste
                       </button>
                     </div>
                   </td>

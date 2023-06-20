@@ -113,12 +113,12 @@ return (
           type="file"
           name="image"
           id="image"
-          className="inline-block py-2 px-4 bg-red-500 text-gray-900 border border-transparent rounded-lg text-sm font-medium leading-5 shadow-sm hover:bg-red-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-red-500"
+          className="inline-block py-2 px-4 bg-red-50 text-gray-900 border border-transparent rounded-lg text-sm font-medium leading-5 shadow-sm hover:bg-red-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-red-500"
           onChange={handleImageChange}
         />
       </div>
        
-      <button type="submit"className="w-full px-4 py-2 bg-red-500 text-white rounded-lg font-semibold text-lg transition-colors duration-300 hover:bg-red-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-red-500">
+      <button type="submit"className="w-full px-4 py-2 bg-green-900 text-white rounded-lg font-semibold text-lg transition-colors duration-300 hover:bg-red-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-red-500">
         Add
       </button>
     </form>

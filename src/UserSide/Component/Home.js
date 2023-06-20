@@ -18,14 +18,14 @@ function Home() {
         <Navbar />
         <div className="flex flex-wrap">
           <div className="w-full md:w-1/2 lg:w-1/2 xl:w-1/2 relative">
-            <img src={waste1} alt="waste1" className="w-full h-auto" />
-            <a href="/wastepickup" className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-64 h-20 bg-green-700 shadow-lg flex items-center justify-center text-white text-lg">
+            <img src={waste1} alt="waste1" className="w-full h-auto mt-10" />
+            <a href="/wastepickup" className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 px-10 py-4 bg-green-700 hover:bg-green-600 shadow-lg flex items-center justify-center text-white text-lg">
               Waste Pickup
             </a>
           </div>
           <div className="w-full md:w-1/2 lg:w-1/2 xl:w-1/2 relative">
-            <img src={waste2} alt="waste2" className="w-full h-auto" />
-            <a href="/scrappickup" className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-64 h-20 bg-yellow-500 shadow-lg flex items-center justify-center text-white text-lg">
+            <img src={waste2} alt="waste2" className="w-full h-auto mt-10" />
+            <a href="/scrappickup" className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 px-10 py-4 bg-yellow-600 hover:bg-yellow-500 shadow-lg flex items-center justify-center text-white text-lg">
               Scrap Pickup
             </a>
           </div>

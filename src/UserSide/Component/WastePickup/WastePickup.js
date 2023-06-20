@@ -8,7 +8,7 @@ import { useSelector } from 'react-redux';
 import { useNavigate } from "react-router-dom";
 import Footer from '../Footer/Footer';
 
-const Booking = () => {
+const WastePickup = () => {
 
   const [SelectedAddress, setSelectedAddress] = useState('');
   const [date, setDate] = useState('');
@@ -16,24 +16,30 @@ const Booking = () => {
   const [wasteCat, setWasteCat] = useState([]);
   const [message, setMessage] = useState('');
   const [wastetype, setWasteType] = useState('')
+  const [wastePrice, setWastePrice] = useState("");
   const [addAddress, setaddAddress] = useState([])
-
+  // const [selectedWaste, setSelectedWaste] = useState(null);
   const navigate = useNavigate()
 
   const {user} = useSelector((state) => state.user);
-  console.log(user, "userrrrrrrrrr entered..!!!!!!");
+
+  
 
   useEffect(() =>{
     fetchaddAddress();
     fetchWasteCategory();
   },[user])
 
+  useEffect(() => {
+    console.log("uhuhs", wastePrice)
+    // setWastePrice(wasteCat?.price)
+  },[wastetype])
+
   const fetchaddAddress = () =>{
     const id = user?.id
     axios
     .get(`api/listAddress/${id}`)
     .then((response) => {
-      console.log(response,"Address arrrrrrrrrrrived");
       const fetchAddress = response.data.map((address) => ({
         id: address.id, 
         firstname: address.firstname,
@@ -50,16 +56,14 @@ const Booking = () => {
       console.log("Error fetching address", error);
     });
   };
-  console.log(addAddress,"Adddddressssssssssssss");
-
   const fetchWasteCategory = () =>{
     axios
     .get('adminapi/biowastelist/')
     .then((response)=>{
-      console.log(response,"Waste is arrrrrrrrrrrived");
       const fetchBioWaste = response.data.map((waste) =>({
-        id: waste.id,
+        id:waste.id,
         name:waste.name,
+        price:waste.price,
       }))
       setWasteCat(fetchBioWaste);
       // console.log(wasteCat,"waste caaaaaaaaategory fieeeeeeeeeld");
@@ -68,8 +72,8 @@ const Booking = () => {
       console.error("Error fetching waste categories:", error);
     });
   };
-  console.log(wasteCat,"waaaaaaaaaaaste");
 
+  
 
   const handleSubmit = (e) => {
     e.preventDefault();
@@ -119,15 +123,13 @@ const Booking = () => {
       address: SelectedAddress,
       pickup_date: date,
       pickup_time:time,
-      note:message,
+      notes:message,
     };
-    console.log(Bookingdata);
     axios
     .post("api/waste_booking/ ", Bookingdata,{
       headers:{"Content-Type": "application/json"},
     })
     .then((response) => {
-      console.log("Booking placed Sucsessfullllly",response.data);
         Swal.fire({
           position: "center",
           icon: 'success',
@@ -147,6 +149,56 @@ const Booking = () => {
     });
 
   };
+
+  const loadScript = (src) =>{
+    return new Promise((resolve) => {
+      const script = document.createElement('script')
+      script.src = src
+
+      script.onload = () => {
+        resolve (true)  
+      }
+
+      script.onerror = () => {
+        resolve (false)
+      }
+
+      document.body.appendChild(script)
+    })
+  }
+
+  const RazorpayPayment = async (payment) => {
+    try {
+      const isLoaded = await loadScript('https://checkout.razorpay.com/v1/checkout.js');
+      
+      if (!isLoaded) {
+        alert('Failed to load Razorpay. Please check your network connection.');
+        return;
+      }
+  
+      const options = {
+        key: 'rzp_test_tBT9s69IVb6TFk',
+        currency: 'INR',
+        name: 'URBAN TRASH',
+        description: 'Thanks for booking',
+        amount: wastePrice*100,
+        handler: function (response) {
+          alert(response.rezorpay_payment_id);
+          alert('Payment Successful');
+        },
+        prefill: {
+          name: 'mizba ulhaq',
+        },
+      };
+  
+      const paymentObject = new window.Razorpay(options);
+      paymentObject.open();
+    } catch (error) {
+      console.error('Failed to load Razorpay:', error);
+      alert('Failed to load Razorpay. Please try again later.');
+    }
+  };
+  
     return (
         <div>
         <Navbar />
@@ -154,25 +206,53 @@ const Booking = () => {
           <div className="flex justify-center items-center mt-20">
             <div className="bg-white rounded-lg p-6 shadow-lg max-w-4xl w-full">
               <form onSubmit={handleSubmit}>
-                <div className="flex flex-col mb-6">
-                  <label htmlFor="wastetype" className="font-bold mb-2">
-                    Waste Type:
-                  </label>
-                  <select
-                    id="wastetype"
-                    value={wastetype}
-                    onChange={(e) => setWasteType(e.target.value)}
-                    className="w-full p-3 border border-gray-300 rounded-md"
-                  >
-                    <option>Select waste type</option>
-                    {wasteCat.map((waste) => (
-                      <option key={waste.id} value={waste.id}>
-                        {waste.name}
-                      </option>
-                    ))}
-                  </select>
-                </div>
-      
+              <h1 className='flex justify-center items-center py-6 px-20 font-bold text-xl text-gray-500'>Waste Pickup</h1>
+
+              <div className="flex flex-col mb-6">
+                <label htmlFor="wastetype" className="font-bold mb-2">
+                  Waste Type:
+                </label>
+                <select
+                  id="wastetype"
+                  value={wastetype}
+                  onChange={(e) => {
+                    setWasteType(e.target.value);
+                    console.log(e.target.value, wasteCat)
+                    const selectedWaste = wasteCat.find((waste) => waste.id == e.target.value);
+                    console.log(selectedWaste)
+                    if (selectedWaste) {
+                      setWastePrice(selectedWaste.price);
+                    } else {
+                      setWastePrice("");
+                    }
+                  }}
+                  className="w-full p-3 border border-gray-300 rounded-md"
+                >
+                  <option value="">Select waste type</option>
+                  {wasteCat.map((waste) => (
+                    <option key={waste.id} value={waste.id}>
+                      {waste.name}
+                    </option>
+                  ))}
+                </select>
+
+              </div>
+
+              <div className="flex flex-col mb-6">
+                <label htmlFor="wasteprice" className="font-bold mb-2">
+                  Waste Price:
+                </label>
+                <input
+                  id="wasteprice"
+                  value={wastePrice}
+                  onChange={(e) => setWastePrice(e.target.value)}
+                  className="w-full p-3 border border-gray-300 rounded-md"
+                />
+                   {/* <option value="">{wastePrice}</option> */}
+                {/* </select> */}
+
+              </div>
+
                 <div className="flex flex-col mb-6">
                   <label htmlFor="address" className="font-bold mb-2">
                     Address:
@@ -204,12 +284,12 @@ const Booking = () => {
                       </h1>
                     )}
                     <button
-                      className="addaddress bg-green-600 text-white py-2 px-4 rounded-md"
+                      className="addaddress bg-blue-500 text-white py-3 px-5 rounded-md"
                       onClick={() => {
                         navigate("/address");
                       }}
                     >
-                      Add Address
+                      AddAddress
                     </button>
                   </div>
                 </div>
@@ -255,18 +335,18 @@ const Booking = () => {
                     value={message}
                     onChange={(e) => setMessage(e.target.value)}
                     className="w-full p-3 border border-gray-300 rounded-md"
-                  ></textarea>
+                  >
+                  </textarea>
                 </div>
-      
                 <button
                   type="submit"
-                  className="bg-green-600 text-white py-3 px-6 rounded-md mb-4"
-                >
-                  Book Now
+                  className="bg-green-700 text-white py-3.5 px-14 rounded-md mb-8"
+                  onClick={() => RazorpayPayment()}>
+                  Pickup Now
                 </button>
       
                 <div className="flex justify-between items-center">
-                  <div></div>
+                      
                   <a href="/" className="text-blue-600">
                     Back
                   </a>
@@ -281,6 +361,6 @@ const Booking = () => {
     );
   };
 
-export default Booking;
+export default WastePickup;
 
 
