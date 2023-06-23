@@ -1,4 +1,4 @@
-export const baseUrl = "http://127.0.0.1:8000/";
+export const baseUrl = "http://16.170.108.13/";
 
 const user = localStorage.getItem('user')
 export const addressList = (user) => 'api/listAddress/user';

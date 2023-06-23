@@ -39,7 +39,7 @@ const Sidebar = ({ children }) => {
           }
         })
         .then((response) => {
-          // Cookies.remove('jwt');
+          Cookies.remove('jwt');
           console.log(response);
           setUserState(response.data.user);
           dispatch(setUserDetails(response.data.user));
