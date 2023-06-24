@@ -6,7 +6,7 @@ import { baseUrl } from '../../../utils/constants';
 const WastePriceList = () => {
     const [wastes, setWastes] = useState('')
 
-    const navigate = useNavigate();
+    const navigate = useNavigate('');
     useEffect (() => {
         fetchBioWaste();
     },[]);
@@ -35,7 +35,7 @@ const WastePriceList = () => {
               <h2 className="text-2xl font-bold mb-4">Bio Waste: <span className="text-green-600">{waste.name}</span></h2>
             </div>
             <div>
-              <h2 className="text-xl text-green-600 mb-4">Holdse: <span>{waste.weight}</span></h2>
+              <h2 className="text-xl text-green-600 mb-4">Weigth: <span>{waste.weight}</span></h2>
             </div>
             <div>
               <h2><span className="text-green-600">Best Use:</span> {waste.category}</h2>

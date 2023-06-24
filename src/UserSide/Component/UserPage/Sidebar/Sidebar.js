@@ -39,7 +39,9 @@ const Sidebar = ({ children }) => {
           }
         })
         .then((response) => {
-          Cookies.remove('jwt');
+
+          // Cookies.remove('jwt');
+
           console.log(response);
           setUserState(response.data.user);
           dispatch(setUserDetails(response.data.user));
@@ -52,11 +54,12 @@ const Sidebar = ({ children }) => {
   }, []);
 
   const handleLogout = () => {
+    Cookies.remove('jwt');
     axios
       .post('/api/logout/')
       .then((response) => {
         console.log('logout response', response);
-        Cookies.remove('jwt');
+
         setUserState(null);
         // Navigate to login page
         navigate('/login');
@@ -82,12 +85,12 @@ const Sidebar = ({ children }) => {
       name: 'Address',
       icon: <FaMapMarkerAlt />
     },
-    {
-      path: '/login',
-      name: 'SignOut',
-      icon: <FaPowerOff />,
-      onclick: handleLogout
-    }
+    // {
+    //   path: '/login',
+    //   name: 'SignOut',
+    //   icon: <FaPowerOff />,
+    //   onclick: handleLogout
+    // }
   ];
 
   return (
@@ -124,6 +127,10 @@ const Sidebar = ({ children }) => {
               <span className="py-2 px-4 text-white">{item.name}</span>
             </NavLink>
           ))}
+        </div>
+        <div className="flex items-center justify-center mt-auto">
+          <FaPowerOff onClick={handleLogout}
+          className="text-red-500 text-xl sm:text-2xl mt-10" />
         </div>
       </motion.div>
 
