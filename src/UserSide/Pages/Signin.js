@@ -149,6 +149,7 @@ const isValidEmail = (email) => {
   //     // dispatch(loginFailure());
   // }
 
+  // dispatch(loginStart());
   const signInWithGoogle = () => {
     // dispatch(loginStart());
     signInWithPopup(auth, provider)
@@ -179,6 +180,7 @@ const isValidEmail = (email) => {
         // dispatch(loginFailure());
       });
   };
+  
   
 
 
