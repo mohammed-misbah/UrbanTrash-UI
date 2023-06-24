@@ -155,6 +155,7 @@ const isValidEmail = (email) => {
     signInWithPopup(auth, provider)
       .then(async (result) => {
         try {
+          console.log(result)
           const response = await axios.post('api/google/', {
             name: result.user.displayName,
             email: result.user.email,
