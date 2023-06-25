@@ -70,7 +70,8 @@ const AddScrapCategory = () => {
 };
 
     return (
-        <form style={{ maxWidth: '600px' }} className="mx-auto px-4 py-20 mt-24 bg-opacity-60 bg-green-800 rounded-lg shadow-md">
+        <form style={{ maxWidth: '600px' }} className="mx-auto px-4 py-20 mt-24 bg-opacity-60 bg-green-800 rounded-lg shadow-md"
+        onSubmit={handleSubmit}>
         <div className="mb-4">
             <label htmlFor="name" className="block mb-1 font-bold text-gray-800">Name:</label>
             <input
