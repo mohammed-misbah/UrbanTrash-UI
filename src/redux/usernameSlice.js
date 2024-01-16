@@ -12,15 +12,11 @@ const userSlice = createSlice({
     },
     reducers: {
         setUserDetails: (state, action) => {
-          console.log(action.payload, "this is action");
           state.user = action.payload;
-          console.log(state.user, 'this is set user details');
         },
         clearUserDetails: (state) => {
-          console.log(state.user, 'this is not set user details');
           Cookies.remove('jwt');
           state.user = null;
-          console.log(state.user, 'after the clear');
         },
       },
     });

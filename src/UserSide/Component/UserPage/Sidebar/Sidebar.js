@@ -94,7 +94,7 @@ const Sidebar = ({ children }) => {
   ];
 
   return (
-    <>
+    <div>
     <Navbar />
     <div className="flex">
       {/* Replace the 'bars' div */}
@@ -137,7 +137,7 @@ const Sidebar = ({ children }) => {
       {/* Main Content */}
       <main className="flex-grow">{children}</main>
     </div>
-  </>
+  </div>
 
   );
 };

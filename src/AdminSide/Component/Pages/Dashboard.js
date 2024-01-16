@@ -6,6 +6,7 @@ import urbantrash from '../../Component/Images/urban trash.jpg'
 const AdminDashboard = () => {
   return (
     <div>
+      <h1>Mohammed misbah</h1>
    <div className="flex bg-gray-100 min-h-screen sm:min-h-0">
   <div className="hidden sm:flex sm:flex-col">
     <div className="flex-grow flex flex-col justify-between text-gray-500 bg-gray-800">
@@ -218,7 +219,7 @@ const AdminDashboard = () => {
         </div>
       </section>
       <section className="text-right font-semibold text-gray-500">
-        <a href="#" className="text-purple-600 hover:underline">Waste recyclables are materials that can be processed and reused to create new products</a> with <a class="text-teal-400 hover:underline">Urban Trash</a> by Mizbaul haQ
+        <a href="#" className="text-purple-600 hover:underline">Waste recyclables are materials that can be processed and reused to create new products</a> with <a className="text-teal-400 hover:underline">Urban Trash</a> by Mizbaul haQ
       </section>
     </div>
   </div>

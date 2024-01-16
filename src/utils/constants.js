@@ -1,4 +1,4 @@
-export const baseUrl = "https://api.firefitnes.com";
+// export const baseUrl = "https://api.firefitnes.com";
 
 const user = localStorage.getItem('user')
 export const addressList = (user) => 'api/listAddress/user';
@@ -17,10 +17,9 @@ export const userUnblock = 'adminapi/unblock_user/${userID}/Status';
 
 // const loginPost = 'http://localhost:3000/api/login'
 
+export const baseUrl = "http://127.0.0.1:8000/";
 
 
 
 
 
-
-// export const baseUrl = "http://127.0.0.1:8000/";

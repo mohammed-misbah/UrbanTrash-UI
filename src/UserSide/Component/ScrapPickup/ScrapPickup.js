@@ -6,6 +6,8 @@ import axios from '../../../utils/axios';
 import { useSelector } from 'react-redux';
 import { useNavigate } from "react-router-dom";
 import Footer from '../Footer/Footer';
+import jwt_decode from "jwt-decode";
+import { Cookie } from '@mui/icons-material';
 
 const ScrapBooking = () => {
 
@@ -28,7 +30,8 @@ const ScrapBooking = () => {
   },[user])
 
   const fetchaddAddress = () =>{
-    const id = user?.id
+    // const id = user?.id
+    const id = user && user.id
     axios
     .get(`api/listAddress/${id}`)
     .then((response) => {
@@ -56,7 +59,7 @@ const ScrapBooking = () => {
     .get('adminapi/scrapwastelist/')
     .then((response)=>{
       console.log(response,"Scrap is arrrrrrrrrrrived");
-      const fetchScrap = response.data.map((scrap) =>({
+      const fetchScrap = response.data.map((scrap) => ({
         id: scrap.id,
         name:scrap.name,
       }))
@@ -95,7 +98,7 @@ const ScrapBooking = () => {
       Swal.fire({
         position:"center",
         icon:"error",
-        title:"Select Address..!",
+        title:"Select Address.!",
         text: 'Please fill in all the fields',
         showConfirmButton:false,
         timer:1500,
@@ -138,16 +141,48 @@ const ScrapBooking = () => {
         setDate("");
         setMessage("")
         navigate('/pickupdetails')
-    })
-    .catch((error) => {
-      console.error("",error);
 
-    });
 
+        // sendNotificationToAdmin(message);
+      })
+      .catch((error) => {
+        console.error("Catching an error",error);
+      });
   };
+
+//     const sendNotificationToAdmin = (message) => {
+//       const socket = new WebSocket("ws://127.0.0.1:8000/ws/chat/urbantrash/");
+//         socket.onopen = () => {
+//           console.log("Websocket connection Established");
+//           const notificationData = {
+//             user: user,
+//             message: message,
+
+//           };
+//           socket.send(JSON.stringify(notificationData));
+//         };
+//           socket.onmessage = (event) => {
+//           console.log("Websocket message is received:", event.data);
+//         };
+//           socket.onclose = () => {
+//           console.log("Websocket connection is closed:");
+//         };
+//           socket.onerror = (error) => {
+//           console.error("Error while connecting a socket", error);
+//     };
+// };
+//     const token = Cookie.getItem("token"); 
+//     const decodedToken = jwt_decode(token);
+//     const isAdmin = decodedToken.is_admin;
+
+//     if (isAdmin) {
+      
+//       sendNotificationToAdmin(message);
+//     }
+  
     return (
     <div>
-        <Navbar />
+      <Navbar />
         <div className="min-h-screen  flex flex-col  ">
           <div className="flex justify-center items-center mt-20">
             <div className="bg-white rounded-lg p-6 shadow-lg max-w-4xl w-full">

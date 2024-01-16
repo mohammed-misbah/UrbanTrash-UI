@@ -132,22 +132,7 @@ const isValidEmail = (email) => {
     return phoneRegex.test(phone);
   };
 
-  // const signInWithGoogle = () => {
-  //   // dispatch(loginStart());
-  //   signInWithPopup(auth, provider)
-  //     .then((result) => { 
-  //       axios.post('api/google/', {
-  //         name:result.user.displayName,
-  //         email:result.user.email,
-  //         token: result.data.jwt,
-  //       }).then((response) => {
-  //         console.log(response.data);
-  //       })
-  //       console.log(result)
-  //     })
-  //     .catch((error) => {});
-  //     // dispatch(loginFailure());
-  // }
+
 
   // dispatch(loginStart());
   const signInWithGoogle = () => {

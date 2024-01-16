@@ -68,7 +68,6 @@ const generateRecaptcha = () => {
                     });
                 }
                 if (response.data.status === "Success") {
-                  console.log("The phone number is entered",phone);
                   generateRecaptcha();
                   let appVerifier = window.recaptchaVerifier;
                   signInWithPhoneNumber(auth, formattedphone, appVerifier)

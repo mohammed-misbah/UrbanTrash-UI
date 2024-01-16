@@ -74,7 +74,7 @@ const Sidebar = () => {
   ];
   
   return (
-<>
+<div>
       {/* Replace the 'bars' div */}
       <div className="fixed top-8 left-50 z-10 flex items-center justify-center p-2 bg-white-500 rounded-lg shadow-lg" onClick={() => setExpaned(!expanded)}>
         <UilBars className="text-2xl" />
@@ -112,7 +112,7 @@ const Sidebar = () => {
           </div>
         </div>
       </motion.div>
-    </>
+    </div>
   );
 };
 

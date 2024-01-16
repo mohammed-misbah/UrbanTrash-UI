@@ -19,7 +19,8 @@ const Pickupdetails = () => {
   },[user]);
 
   const fetchWasteBookingdetails = () => {  
-    const id = user?.id
+    // const id = user?.id
+    const id = user && user.id
     axios
     .get(`/api/pickup_detail/${id}`)
     .then((response) => {
@@ -36,7 +37,8 @@ const Pickupdetails = () => {
               // Scrap Booking details //
 
   const fetchScrapBookingdetails = () => {
-    const id = user?.id
+    // const id = user?.id
+    const id = user && user.id
     axios 
     .get(`/api/scrappickup_detail/${id}/`)
     .then((response) => {

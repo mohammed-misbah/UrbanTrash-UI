@@ -36,7 +36,8 @@ const WastePickup = () => {
   },[wastetype])
 
   const fetchaddAddress = () =>{
-    const id = user?.id
+    // const id = user?.id
+    const id = user && user.id
     axios
     .get(`api/listAddress/${id}`)
     .then((response) => {

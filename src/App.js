@@ -46,32 +46,32 @@ import axios from './utils/axios';
 import { setUserDetails } from './redux/usernameSlice';
 
 function App() {
-  const [user, setUserState] = useState(0);
+  const [userr, setUserState] = useState(0);
   const dispatch = useDispatch();
   const navigate = useNavigate();
   useEffect(() => {
-    // const jwt = localStorage.getItem('jwt_user')
-    
-    const token = Cookies.get("jwt") ?? Cookies.get("jwt_token");
-    console.log("this is s",token)
+    const token = Cookies.get("jwt");
+    console.log("Token being sent:", token);
     if (!token) {
-
-      console.log("no");
+      console.log("No token found");
     } else {
-      console.log(token);
       axios
         .get('api/verify_token/', {
           headers: {
-            Authorization: `${token}`,
+            Authorization: `Bearer ${token}`,
           },
         })
         .then((response) => {
-          console.log("this is res",response);
-          setUserState(response.data.user)
+          setUserState(response.data.user);
           dispatch(setUserDetails(response.data.user));
-        }).catch((err) => {console.log(err)});
+        })
+        .catch((error) => {
+          console.log("Error verifying token:", error);
+        });
     }
-  },[]);
+  }, [dispatch]);
+  
+  
   
   return (
       <Routes>
@@ -84,40 +84,37 @@ function App() {
         <Route path="/scrappickup" element={<ScrapPickup/>}/>
         <Route path='/pricelist' element={<PriceList/>}/>
         <Route path='/contact' element={<Contact/>}/>
-        <Route path='/address' element={<><Sidebar /><Address/></>}/>
-        <Route path="/pickupdetails" element={<><Sidebar /><PickupDetails /></>} />
-        <Route path="/user" element={<><Sidebar /><User /></>} />
+        <Route path='/address' element={<Sidebar><Address/></Sidebar>}/>
+        <Route path="/pickupdetails" element={<Sidebar><PickupDetails /></Sidebar>} />
+        <Route path="/user" element={<Sidebar><User /></Sidebar>} />
       </Routes>
   );
 }
 
-
 function AppLayout() {
   return (
-
                 <Routes>
                   <Route path='/admin' element={<AdminLogin/>} />
-                  <Route path='/dashboard' element={<><AdminSidebar/><Dashboard/></>} />
-                  <Route path='/users' element={<><AdminSidebar/><Users /></>} />
-                  <Route path='/wastecategory' element={<><AdminSidebar/><WasteCategory /></>} />
-                  <Route path='/scrapcategory' element={<><AdminSidebar/><ScrapCategory /></>} />
-                  <Route path='/addwastecategory' element={<><AdminSidebar/><AddWasteCategory /></>} />
-                  <Route path='/biowaste' element={<><AdminSidebar/><BioWaste /></>} />
-                  <Route path='/scrapwaste' element={<><AdminSidebar/><><AdminSidebar/><ScrapWaste /></></>} />
-                  <Route path='/editwastecategory/:id' element={<><AdminSidebar/><EditWasteCategory/></>} />
-                  <Route path='/editscrapcategory/:id' element={<><AdminSidebar/><EditScrapCategory/></>} />
-                  <Route path='/addwaste' element={<><AdminSidebar/><AddWaste/></>} />
-                  <Route path='/addscrap' element={<><AdminSidebar/><AddScrap/></>} />
-                  <Route path='/editwaste/:id' element={<><AdminSidebar/><EditWaste/></>} />
-                  <Route path='/editscrap/:id' element={<><AdminSidebar/><EditScrap/></>} />
-                  <Route path='/wastepickuplist' element={<><AdminSidebar/><WastePickupDetails /></>} />
-                  <Route path='/scrapickuplist' element={<><AdminSidebar/><ScrapPickupDetails /></>} />
-                  <Route path="/addscrapcategory" element={<><AdminSidebar/><AddScrapCategory /></>} />
-                  <Route path='/scrapupdate/:id' element={<><AdminSidebar/><ScrapPickupUpdate /></>} />
-                  <Route path='/wasteupdate/:id' element={<><AdminSidebar/><WastePickupUpdate /></>} />
+                  <Route path='/dashboard' element={<AdminSidebar><Dashboard /></AdminSidebar>} />
+                  <Route path='/users' element={<AdminSidebar><Users /></AdminSidebar>} />
+                  <Route path='/wastecategory' element={<AdminSidebar><WasteCategory /></AdminSidebar>} />
+                  <Route path='/scrapcategory' element={<AdminSidebar><ScrapCategory /></AdminSidebar>} />
+                  <Route path='/addwastecategory' element={<AdminSidebar><AddWasteCategory /></AdminSidebar>} />
+                  <Route path='/biowaste' element={<AdminSidebar><BioWaste /></AdminSidebar>} />
+                  <Route path='/scrapwaste' element={<AdminSidebar><ScrapWaste /></AdminSidebar>} />
+                  <Route path='/editwastecategory/:id' element={<AdminSidebar><EditWasteCategory/></AdminSidebar>} />
+                  <Route path='/editscrapcategory/:id' element={<AdminSidebar><EditScrapCategory/></AdminSidebar>} />
+                  <Route path='/addwaste' element={<AdminSidebar><AddWaste/></AdminSidebar>} />
+                  <Route path='/addscrap' element={<AdminSidebar><AddScrap/></AdminSidebar>} />
+                  <Route path='/editwaste/:id' element={<AdminSidebar><EditWaste/></AdminSidebar>} />
+                  <Route path='/editscrap/:id' element={<AdminSidebar><EditScrap/></AdminSidebar>} />
+                  <Route path='/wastepickuplist' element={<AdminSidebar><WastePickupDetails /></AdminSidebar>} />
+                  <Route path='/scrapickuplist' element={<AdminSidebar><ScrapPickupDetails /></AdminSidebar>} />
+                  <Route path="/addscrapcategory" element={<AdminSidebar><AddScrapCategory /></AdminSidebar>} />
+                  <Route path='/scrapupdate/:id' element={<AdminSidebar><ScrapPickupUpdate /></AdminSidebar>} />
+                  <Route path='/wasteupdate/:id' element={<AdminSidebar><WastePickupUpdate /></AdminSidebar>} />
                 </Routes>
 
-      
   );
 }
 
@@ -126,3 +123,24 @@ export default App;
 
 
 
+{/* <Routes>
+  <Route path='/admin' element={<AdminLogin/>} />
+  <Route path='/dashboard' element={<AdminSidebar><Dashboard /></AdminSidebar>} />
+  <Route path='/users' element={<AdminSidebar><Users /></AdminSidebar>} />
+  <Route path='/wastecategory' element={<AdminSidebar><WasteCategory /></AdminSidebar>} />
+  <Route path='/scrapcategory' element={<AdminSidebar><ScrapCategory /></AdminSidebar>} />
+  <Route path='/addwastecategory' element={<AdminSidebar><AddWasteCategory /></AdminSidebar>} />
+  <Route path='/biowaste' element={<AdminSidebar><BioWaste /></AdminSidebar>} />
+  <Route path='/scrapwaste' element={<AdminSidebar><ScrapWaste /></AdminSidebar>} />
+  <Route path='/editwastecategory/:id' element={<AdminSidebar><EditWasteCategory/></AdminSidebar>} />
+  <Route path='/editscrapcategory/:id' element={<AdminSidebar><EditScrapCategory/></AdminSidebar>} />
+  <Route path='/addwaste' element={<AdminSidebar><AddWaste/></AdminSidebar>} />
+  <Route path='/addscrap' element={<AdminSidebar><AddScrap/></AdminSidebar>} />
+  <Route path='/editwaste/:id' element={<AdminSidebar><EditWaste/></AdminSidebar>} />
+  <Route path='/editscrap/:id' element={<AdminSidebar><EditScrap/></AdminSidebar>} />
+  <Route path='/wastepickuplist' element={<AdminSidebar><WastePickupDetails /></AdminSidebar>} />
+  <Route path='/scrapickuplist' element={<AdminSidebar><ScrapPickupDetails /></AdminSidebar>} />
+  <Route path="/addscrapcategory" element={<AdminSidebar><AddScrapCategory /></AdminSidebar>} />
+  <Route path='/scrapupdate/:id' element={<AdminSidebar><ScrapPickupUpdate /></AdminSidebar>} />
+  <Route path='/wasteupdate/:id' element={<AdminSidebar><WastePickupUpdate /></AdminSidebar>} />
+</Routes> */}

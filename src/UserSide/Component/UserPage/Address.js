@@ -22,7 +22,8 @@ const Address = () => {
   },[user]);
 
   const fetchAddress = () => {
-    const id = user?.id
+    // const id = user?.id
+    const id = user && user.id
     axios.get(`api/listAddress/${id}`)
     .then((response) => {
       console.log(response);
@@ -45,8 +46,9 @@ const Address = () => {
 
   const [showAddAddress, setShowAddAddress] = useState(false);
   const [newAddress, setNewAddress] = useState({
-    user:user?.id,
-    firstname:"",
+    // user:user?.id,
+    user: user && user.id,
+    firstname: "",
     lastname: "",
     email: "",
     phone: "",
@@ -60,7 +62,7 @@ const Address = () => {
   }
 
   const handleChangeNewAddress = (e) => {
-    setNewAddress({ ...newAddress, [e.target.name]: e.target.value, user: user?.id});
+    setNewAddress({ ...newAddress, [e.target.name]: e.target.value, user: user && user.id});
   };
   
   const handleAddAddress = (e) => {
