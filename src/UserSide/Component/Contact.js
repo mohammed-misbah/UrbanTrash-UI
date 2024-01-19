@@ -3,7 +3,7 @@ import Navbar from './Navbar/Navbar';
 import Footer from './Footer/Footer'
 
 
-const Contact = () => {
+const getContactInfo = () => {
   return (
     <div >
     <Navbar/>
@@ -32,4 +32,4 @@ const Contact = () => {
   )
 }
 
-export default Contact;
+export default getContactInfo;

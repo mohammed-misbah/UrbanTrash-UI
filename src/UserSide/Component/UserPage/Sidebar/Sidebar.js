@@ -71,8 +71,8 @@ const Sidebar = ({ children }) => {
 
   const MenuItem = [
     {
-      path: '/user',
-      name: 'User',
+      path: '/profile',
+      name: 'Profile',
       icon: <FaUserAlt />
     },
     {
@@ -85,12 +85,6 @@ const Sidebar = ({ children }) => {
       name: 'Address',
       icon: <FaMapMarkerAlt />
     },
-    // {
-    //   path: '/login',
-    //   name: 'SignOut',
-    //   icon: <FaPowerOff />,
-    //   onclick: handleLogout
-    // }
   ];
 
   return (

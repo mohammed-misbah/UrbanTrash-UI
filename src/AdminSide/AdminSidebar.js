@@ -26,43 +26,43 @@ const Sidebar = () => {
   // console.log(window.innerWidth)
   const SidebarData = [
     {
-      path:'/dashboard',
+      path:'/admin/dashboard',
       icon: UilEstate,
       heading: "Dashboard",
   
     },
     {
-      path:'/wastepickuplist',
+      path:'/admin/wastepickuplist',
       icon: UilClipboardAlt,
       heading: "WastePickuplist",
     },
     {
-      path:'/scrapickuplist',
+      path:'/admin/scrapickuplist',
       icon: UilClipboardAlt,
       heading: "ScrapPickuplist",
     },
     {
-      path:'/users',
+      path:'/admin/users',
       icon: UilUsersAlt,
       heading: "Users",
     },
     {
-      path:'/wastecategory',
+      path:'/admin/wastecategory',
       icon: UilPackage,
       heading: 'Waste Category'
     },
     {
-      path:'/scrapcategory',
+      path:'/admin/scrapcategory',
       icon: UilPackage,
       heading: 'Scrap Category'
     },
     {
-      path:'/biowaste',
+      path:'/admin/biowaste',
       icon: UilArchive,
       heading: 'Bio Waste'
     },
     {
-      path:'/scrapwaste',
+      path:'/admin/scrapwaste',
       icon: UilArchive,
       heading: 'Scrap Waste'
     },

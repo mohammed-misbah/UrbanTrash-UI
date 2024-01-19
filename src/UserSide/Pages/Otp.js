@@ -104,7 +104,7 @@ const generateRecaptcha = () => {
                         user_id: id,
                     })
                 );
-                navigate("/")
+                navigate("/user")
             })
             .catch((error) => {
                 toast.error(`error=> ${error.message}`);
@@ -177,4 +177,4 @@ const generateRecaptcha = () => {
     
 }
 
-export default Otp
+export default Otp;

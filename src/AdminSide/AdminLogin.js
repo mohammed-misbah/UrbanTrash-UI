@@ -60,7 +60,7 @@ const AdminLogin = () => {
             });
             if (response.status === 200) {
               dispatch(setAdminDetails(response.data.admin));
-              navigate("/dashboard");
+              navigate("/admin/dashboard");
             }
           }
         });

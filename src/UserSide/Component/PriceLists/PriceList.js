@@ -3,7 +3,7 @@ import ScrapPriceList from './ScrapPriceList'
 import WastePriceList from './WastePriceList'
 import Navbar from '../Navbar/Navbar'
 
-const PriceList = () => {
+const getPriceList = () => {
   return (
     <div>
       <Navbar />
@@ -21,4 +21,4 @@ const PriceList = () => {
   )
 }
 
-export default PriceList
+export default getPriceList

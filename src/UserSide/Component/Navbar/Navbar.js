@@ -40,7 +40,7 @@ const Navbar = () => {
               Contact
             </li>
             {user ? (
-              <li onClick={() => navigate('/user')} className="cursor-pointer hover:text-red-500">
+              <li onClick={() => navigate('/profile')} className="cursor-pointer hover:text-red-500">
                 {user.name}
               </li>
             ) : (

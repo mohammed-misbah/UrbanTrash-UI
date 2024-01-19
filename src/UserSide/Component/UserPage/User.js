@@ -16,8 +16,7 @@ export default function ProfileDetails() {
 
   useEffect(() => {
     const token = Cookies.get('jwt');
-    if 
-    (token) {
+    if (token) {
       axios
         .get('api/verify_token/', {
           headers: {
