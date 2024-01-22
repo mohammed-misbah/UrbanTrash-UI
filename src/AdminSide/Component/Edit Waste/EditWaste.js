@@ -28,13 +28,11 @@ const EditWaste = () => {
             setWeight(response.data.weight);
             setImage(response.data.image);
             setCategory(response.data.category);
-            console.log(response,"enteeeeeeeeeered")
         })
         .catch((error) => {
             console.error("Error fetching Biowaste",error)
         });
     };
-    console.log("fetch waaaaaaaste",id);
 
     const updateBioWaste = () => {
         const updatedBioWaste = {
@@ -46,7 +44,6 @@ const EditWaste = () => {
             image:image,
             category:category,
         };
-        console.log("Thiiiiiiiiis has the updated biooooo waaaaaaste",updatedBioWaste)
         const DatasWithImage = new FormData();
         DatasWithImage.append("name", updatedBioWaste.name);
         DatasWithImage.append("description", updatedBioWaste.description);
@@ -71,12 +68,10 @@ const EditWaste = () => {
             console.error("Error updationg in bioWaste:",error);
         })
     }
-    console.log("Biooooo waste updated Successfully:", bioWaste);
 
     const deleteBioWaste = () =>{
         axios.delete(`/adminapi/biowastedit/${id}/`)
         .then((response) => {
-            console.log("Biowaste deleted Successfully:");
             Swal.fire({
                 position: "center",
                 icon: "success",
@@ -84,7 +79,7 @@ const EditWaste = () => {
                 showConfirmButton: false,
                 timer: 1500,
               });
-              navigate('/biowaste/')
+              navigate('/admin/biowaste/')
         })
     }
     const handleImageUpload = (event) => {

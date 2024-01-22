@@ -22,14 +22,13 @@ const WasteCategory = () => {
       console.error(error);
     }
   };
-  console.log(categories,'categorieeeeeeees is heeeeeeeeeere')
 
   const changeShow = () => {
-    navigate('/addwastecategory/')
+    navigate('/admin/wastecategory/add/')
   };
 
   const redirectToWasteCategoryDetail = (id) => {
-    navigate(`/editwastecategory/${id}`);
+    navigate(`/admin/wastecategory/edit/${id}`);
   };
   
 

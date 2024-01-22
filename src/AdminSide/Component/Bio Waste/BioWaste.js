@@ -26,8 +26,7 @@ const BioWaste = () => {
       console.error(error);
     }
   };
-  console.log(biowaste,"biooooooooooo waaaaaaaaaaaaste");
-
+  
   const fetchCategories = async () => {
     try {
       const response = await axios.get('/adminapi/wastecategory/');
@@ -37,14 +36,13 @@ const BioWaste = () => {
       console.error(error);
     }
   };
-  console.log(categories,"biooooooooooo waaaaaaaaaaaaste");
 
   const changeShow = () => {
-    navigate('/addwaste/')
+    navigate('/admin/addwaste/')
   }
 
   const redirectToWasteDetail = (id) => {
-    navigate(`/editwaste/${id}`)
+    navigate(`/admin/editwaste/${id}`)
   }
 
   return (

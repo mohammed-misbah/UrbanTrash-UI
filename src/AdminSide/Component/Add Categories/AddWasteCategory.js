@@ -65,8 +65,6 @@ const AddWasteCategory = () => {
             } catch (error) {
                 console.error(error);
               }
-            console.log(formData,"category dataaaaaaaaaaaaaaas");
-    
       };
 
 return (

@@ -24,14 +24,13 @@ const ScrapWaste = () => {
       console.error(error);
     }
   }
-  console.log(scrapwaste, "scraaaaaaap wasaaaaaaaaate" )
 
   const changeShow = () => {
-    navigate('/addscrap/')
+    navigate('/admin/addscrap/')
   }
 
   const redirectToScrapDetail = (id) => {
-    navigate(`/editscrap/${id}`);
+    navigate(`/admin/editscrap/${id}`);
   }
 
 return (

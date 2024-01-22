@@ -29,13 +29,11 @@ const EditScrap = () => {
             setWeight(response.data.weight);
             setImage(response.data.image);
             setCategory(response.data.category);
-            console.log("Daataas enteeeered");
         })
         .catch((error) => {
             console.error("Error fetching Scrap Waste",error)
         });
     };
-    console.log("fetch scraaaaaap",id);
 
     const updateScrap = () => {
         const updatedScrap = {
@@ -47,7 +45,6 @@ const EditScrap = () => {
             image:image,
             category:category,
         };
-        console.log("Thisssss haaaaaas updated Scraaaap Waaaaaaste", updatedScrap)
         const DataWithImage = new FormData();
         DataWithImage.append("name", updatedScrap.name);
         DataWithImage.append("description", updatedScrap.description);
@@ -72,7 +69,6 @@ const EditScrap = () => {
             console.error("Error updating in Scrap Waste",error);
         })
     }
-    console.log("Scraaap waaaaaste updated Successfully:",scrapWaste);
 
     const deleteScrap = () => {
         axios.delete(`/adminapi/scrapwastedit/${id}`)
@@ -85,7 +81,7 @@ const EditScrap = () => {
             showConfirmButton: false,
             timer: 1500,
           });
-          navigate('/scrapwaste/')
+          navigate('/admin/scrapwaste/')
         })
     }
 

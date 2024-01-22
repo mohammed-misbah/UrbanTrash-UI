@@ -29,7 +29,6 @@ const EditWasteCategory = () => {
       console.error("Error fetching Waste Category:", error);
     });
   };
-  console.log("fetch caaaaaategory",id)
 
   const updateWasteCategory = () => {
     const updatedWasteCategory = {
@@ -46,7 +45,6 @@ const EditWasteCategory = () => {
 
     axios.patch(`/adminapi/wastecatedit/${id}/`, DatasWithImage)
     .then ((response) => {
-      console.log("Waste category updated Successfully:", response.data);
       Swal.fire({
         position: "center",
         icon: "success",
@@ -60,8 +58,6 @@ const EditWasteCategory = () => {
       console.error("Error updating category:",error);
     })
   }
-  console.log("Waste category updated Successfully:",wasteCategory);
-
 
    const deleteWasteCategory = () => {
     axios.
@@ -75,7 +71,7 @@ const EditWasteCategory = () => {
           showConfirmButton: false,
           timer: 2000,
         });
-        navigate('/wastecategory/')
+        navigate('/admin/wastecategory/')
       })
    };
 

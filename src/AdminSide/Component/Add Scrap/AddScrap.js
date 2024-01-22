@@ -17,7 +17,6 @@ const AddScrap = () => {
     });
 
     const {user} = useSelector((state) => state.user);
-    console.log(user, "uuuuser enteeeeered..!!!")
 
     useEffect (() => {
       fetchScrapCategory();
@@ -26,7 +25,6 @@ const AddScrap = () => {
      const fetchScrapCategory = () => {
       axios.get('adminapi/scrapcategory')
       .then((response) => {
-        console.log(response,"Scaaap arrrrrrived");
         const fetchScrap = response.data.map((scrap) => ({
           id:scrap.id,
           name: scrap.name,
@@ -37,7 +35,6 @@ const AddScrap = () => {
         console.error('Error fetching scrap Caaategory:', error);
       })
      }
-     console.log(scrapCat,"Scraaap enteeeeeeeeered")
 
     const handleInputChange = (event) =>{
         const {name, value} = event.target;
@@ -90,8 +87,6 @@ const AddScrap = () => {
             } catch (error) {
               console.error(error);
               }
-            console.log(formData,"scrap dataaaaaaaaaas..!!!!!");
-    
     };
 
 return (

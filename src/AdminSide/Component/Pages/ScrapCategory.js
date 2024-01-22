@@ -23,10 +23,10 @@ const ScrapCategory = () => {
   }
 
   const changeShow = () => {
-    navigate('/addscrapcategory/')
+    navigate('/admin/scrapcategory/add')
   }
   const redirectToScrapCategoryDetail = (id) => {
-    navigate(`/editscrapcategory/${id}`);
+    navigate(`/admin/scrapcategory/edit/${id}`);
   }
   return (
 <div className="flex flex-col">

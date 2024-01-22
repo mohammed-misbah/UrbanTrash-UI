@@ -16,7 +16,6 @@ const AddWaste = () => {
       image: '',
     });
     const {user} = useSelector((state) => state.user);
-    console.log(user, "userrrrrrrrrr entered..!!!!!!");
 
     useEffect(() => {
       fetchWasteCategory();
@@ -25,7 +24,6 @@ const AddWaste = () => {
     const fetchWasteCategory = () => {
       axios.get('adminapi/wastecategory')
       .then((response) => {
-        console.log(response,"Category aaarrrrrrrrrived");
         const fetchCategory = response.data.map((waste) => ({
           id:waste.id,
           name: waste.name,
@@ -36,7 +34,6 @@ const AddWaste = () => {
         console.error('Error fetching waste categories:', error);
       });
     };
-    console.log(wasteCat,"waaaaaste enteeeeeered")
 
     const handleInputChange = (event) =>{
         const {name, value} = event.target;
@@ -87,8 +84,6 @@ const AddWaste = () => {
             } catch (error) {
               console.error(error,"catchhhhhh");
               }
-            console.log(formData,"waste dataaaaaaaaaas..!!!!!");
-    
     };
 
 return (

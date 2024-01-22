@@ -65,8 +65,6 @@ const AddScrapCategory = () => {
               } catch (error) {
                 console.error(error);
               }
-              console.log(formData,"scrap dataaaaaaaaaas..!!!!!");
-              
 };
 
     return (

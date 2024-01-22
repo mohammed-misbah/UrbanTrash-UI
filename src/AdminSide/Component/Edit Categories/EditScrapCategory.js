@@ -28,8 +28,6 @@ const EditScrapCategory = () => {
       console.error("Error fetching Waste Category:", error);
     });
   };
-  console.log("fetch caaaaaategory",id)
-
 
 
   const updateScrapCategory = () => {
