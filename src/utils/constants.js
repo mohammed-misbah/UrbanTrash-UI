@@ -1,4 +1,4 @@
-export const baseUrl = "https://13.53.131.202/";
+export const baseUrl = "https://api.firefitnes.online/";
 
 const user = localStorage.getItem('user')
 export const addressList = (user) => 'api/listAddress/user';
