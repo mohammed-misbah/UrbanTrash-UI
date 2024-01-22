@@ -23,7 +23,7 @@ const ScrapCategory = () => {
   }
 
   const changeShow = () => {
-    navigate('/admin/scrapcategory/add')
+    navigate('/admin/scrapcategory/add/')
   }
   const redirectToScrapCategoryDetail = (id) => {
     navigate(`/admin/scrapcategory/edit/${id}`);

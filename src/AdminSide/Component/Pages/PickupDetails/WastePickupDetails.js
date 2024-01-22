@@ -28,7 +28,7 @@ const WastePickupDetails = () => {
 
   
   const redirectToPickupDetail = (id) => {
-    navigate(`/wasteupdate/${id}`)
+    navigate(`/admin/biowaste/update/${id}`)
   }
 
  

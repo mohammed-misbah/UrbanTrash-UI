@@ -26,32 +26,32 @@ const AdminLayoutWithSidebar = () => {
     <>
       <AdminSidebar />
       <Routes>
-        <Route path="/dashboard" element={<AdminDashboard />} />
-        <Route path="/users" element={<User />} />
+        <Route path="/dashboard/" element={<AdminDashboard />} />
+        <Route path="/users/" element={<User />} />
  
         {/* Waste Category, Add and Edit */}
-        <Route path='/wastecategory' element={<WasteCategory />} />
-        <Route path='/wastecategory/add' element={<AddWasteCategory />} />
+        <Route path='/wastecategory/' element={<WasteCategory />} />
+        <Route path='/wastecategory/add/' element={<AddWasteCategory />} />
         <Route path='/wastecategory/edit/:id' element={<EditWasteCategory/>} />
 
         {/* Scrap Category, Add and Edit */}
-        <Route path='/scrapcategory' element={<ScrapCategory />} />
-        <Route path="/scrapcategory/add" element={<AddScrapCategory />} />
+        <Route path='/scrapcategory/' element={<ScrapCategory />} />
+        <Route path="/scrapcategory/add/" element={<AddScrapCategory />} />
         <Route path='/scrapcategory/edit/:id' element={<EditScrapCategory/>} />
 
         {/* Bio Waste, Add, Edit, Update and List */}
-        <Route path='/biowaste' element={<BioWaste />} />
-        <Route path='/addwaste' element={<AddWaste/>} />
-        <Route path='/editwaste/:id' element={<EditWaste/>} />
-        <Route path='/wasteupdate/:id' element={<WastePickupUpdate />} />
-        <Route path='/wastepickuplist' element={<WastePickupDetails />} />
+        <Route path='/biowaste/' element={<BioWaste />} />
+        <Route path='/biowaste/add/' element={<AddWaste/>} />
+        <Route path='/biowaste/edit/:id' element={<EditWaste/>} />
+        <Route path='/biowaste/update/:id' element={<WastePickupUpdate />} />
+        <Route path='/wastepickuplist/' element={<WastePickupDetails />} />
 
         {/* Scrap Waste, Add, Edit, Update and List */}
-        <Route path='/scrapwaste' element={<ScrapWaste />} />
-        <Route path='/addscrap' element={<AddScrap/>} />
-        <Route path='/editscrap/:id' element={<EditScrap/>} />
-        <Route path='/scrapupdate/:id' element={<ScrapPickupUpdate />} />
-        <Route path='/scrapickuplist' element={<ScrapPickupDetails />} />
+        <Route path='/scrapwaste/' element={<ScrapWaste />} />
+        <Route path='/scrapwaste/add/' element={<AddScrap/>} />
+        <Route path='/scrapwaste/edit/:id' element={<EditScrap/>} />
+        <Route path='/scrapwaste/update/:id' element={<ScrapPickupUpdate />} />
+        <Route path='/scrapickuplist/' element={<ScrapPickupDetails />} />
 
       </Routes>
     </>

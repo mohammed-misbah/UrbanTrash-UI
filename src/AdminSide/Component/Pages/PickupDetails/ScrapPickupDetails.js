@@ -26,7 +26,7 @@ const ScrapPickupDetails = () => {
   console.log(scrapbookings,'Scrap booking details entered');
 
   const redirectToPickupDetail = (id) => {
-    navigate(`/scrapupdate/${id}`)
+    navigate(`/admin/scrapwaste/update/${id}`)
   }
 
   return (

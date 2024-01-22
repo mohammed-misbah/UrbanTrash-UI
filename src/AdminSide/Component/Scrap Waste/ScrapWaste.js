@@ -26,11 +26,11 @@ const ScrapWaste = () => {
   }
 
   const changeShow = () => {
-    navigate('/admin/addscrap/')
+    navigate('/admin/scrapwaste/add/')
   }
 
   const redirectToScrapDetail = (id) => {
-    navigate(`/admin/editscrap/${id}`);
+    navigate(`/admin/scrapwaste/edit/${id}`);
   }
 
 return (

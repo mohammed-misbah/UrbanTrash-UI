@@ -38,11 +38,11 @@ const BioWaste = () => {
   };
 
   const changeShow = () => {
-    navigate('/admin/addwaste/')
+    navigate('/admin/biowaste/add/')
   }
 
   const redirectToWasteDetail = (id) => {
-    navigate(`/admin/editwaste/${id}`)
+    navigate(`/admin/biowaste/edit/${id}`)
   }
 
   return (

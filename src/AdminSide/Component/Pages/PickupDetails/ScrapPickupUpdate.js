@@ -54,7 +54,6 @@ const ScrapPickupUpdate = () => {
             console.error("Error updating order:", error);
           });
     };
-    console.log("Updaaaaaate pickup", pickup)
 
 
     const deletePickup = () => {

@@ -89,7 +89,7 @@ const EditScrapCategory = () => {
 
 
 return (
-    <div className="max-w-2xl mx-auto p-8 mt-20 bg-green-700 rounded-lg shadow-lg">
+    <div className="max-w-2xl mx-auto p-8 mt-20 bg-opacity-60 bg-green-700 rounded-lg shadow-lg">
       <p>Scrap Category ID: {scrapCategory.id}</p>
       <div className="mb-4">
         <label htmlFor="name" className="block mb-1 font-semibold text-gray-700">Name:</label>
