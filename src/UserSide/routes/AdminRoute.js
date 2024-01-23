@@ -19,6 +19,7 @@ import ScrapPickupUpdate from '../../AdminSide/Component/Pages/PickupDetails/Scr
 import WastePickupUpdate from '../../AdminSide/Component/Pages/PickupDetails/WastePickupUpdate';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import AdminSidebar from '../../AdminSide/AdminSidebar'
+import AdminRegister from '../../AdminSide/AdminSignup';
 
 
 const AdminLayoutWithSidebar = () => {
@@ -62,6 +63,7 @@ const AdminLayoutWithSidebar = () => {
 function AdminLayout() {
   return (
     <Routes>
+        <Route path='/register/' element={<AdminRegister/>}/>
         <Route path="/" element={<AdminLogin />} />
         <Route path="/*" element={<AdminLayoutWithSidebar />} />
     </Routes>
