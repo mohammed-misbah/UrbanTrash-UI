@@ -50,10 +50,6 @@ export default function ProfileDetails() {
                 <input className="input" type="email" value={email} name="email" />
             </div>
             <div className="flex flex-col">
-                <label className="text-gray-700">Phone Number:</label>
-                <input className="input" type="tel" value={phone_number} name="phone_number" />
-            </div>
-            <div className="flex flex-col">
                 <label className="text-gray-700">Address:</label>
                 <input className="input" type="text" defaultValue="Kasaragod, Kerala" name="address" />
             </div>
